@@ -474,7 +474,11 @@ EXCEPTION
 
 ---
 
-## Version Notes
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
 
 - **Oracle 12c+**: `UTL_CALL_STACK` package provides a structured API to inspect the call stack, error stack, and backtrace programmatically — more powerful than `DBMS_UTILITY` string functions. Available functions confirmed in 19c docs: `ERROR_DEPTH`, `ERROR_NUMBER`, `ERROR_MSG`, `BACKTRACE_DEPTH`, `BACKTRACE_UNIT`, `BACKTRACE_LINE`, `DYNAMIC_DEPTH`, `SUBPROGRAM`, `OWNER`, `UNIT_LINE`.
 - **All versions**: `DBMS_UTILITY.FORMAT_ERROR_BACKTRACE` requires the exception to be currently active (called from within the exception handler, or the backtrace is reset).

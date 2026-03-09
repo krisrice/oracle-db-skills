@@ -392,7 +392,11 @@ Large packages are harder to maintain and cause longer compilation times. Consid
 
 ---
 
-## Version Notes
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
 
 - **Oracle 12c+**: Invisible columns in tables do not affect `%ROWTYPE` in packages compiled before the column was added — recompile is needed.
 - **Oracle 18c+**: Private procedures in the package spec (using `ACCESSIBLE BY` introduced in 12.2) allow fine-grained access control between packages.

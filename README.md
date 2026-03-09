@@ -4,6 +4,12 @@ A comprehensive reference library covering every major aspect of working with Or
 
 **102 reference guides** organized across 14 categories. Each file is a standalone comprehensive guide with explanations, practical examples, best practices, and common mistakes.
 
+## Version Coverage Standard
+
+- Skills that include version-specific behavior must include a section named `## Oracle Version Notes (19c vs 26ai)`.
+- Use Oracle Database 19c as the baseline compatibility target unless stated otherwise.
+- Explicitly call out features that require newer releases and provide 19c-compatible alternatives where practical.
+
 ---
 
 ## Categories

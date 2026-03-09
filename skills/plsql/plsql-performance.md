@@ -445,7 +445,11 @@ WHERE  type = 'Result' AND name LIKE '%GET_TAX_RATE%';
 
 ---
 
-## Version Notes
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
 
 - **Oracle 11g+**: `RESULT_CACHE` for functions introduced. `RELIES_ON` still required in 11gR1; auto-detected in 11gR2+.
 - **Oracle 12c+**: `PRAGMA UDF` (User Defined Function) hint reduces context switch overhead when a PL/SQL function is called from SQL. Apply when you cannot use SQL expressions instead.

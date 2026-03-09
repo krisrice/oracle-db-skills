@@ -515,6 +515,13 @@ Plugging a PDB from a lower version CDB into a higher version CDB without runnin
 
 ---
 
+
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
 ## Sources
 
 - [Oracle Multitenant Administrator's Guide 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/multi/) — CDB/PDB architecture, creating and managing PDBs, cloning, plugging/unplugging, common users, Application Containers

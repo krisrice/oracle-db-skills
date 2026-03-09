@@ -507,7 +507,11 @@ status_code   CHAR(1)      NOT NULL   -- 'A'ctive, 'I'nactive, 'S'uspended
 
 ---
 
-## 8. Oracle Version Notes
+## 8. Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features listed from 21c/23c generations are Oracle Database 26ai-capable; keep 19c alternatives for mixed-version estates.
+- Validate defaults and behavior in your exact RU level when running both 19c and 26ai.
 
 | Feature | Version Introduced |
 |---|---|

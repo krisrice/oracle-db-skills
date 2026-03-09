@@ -354,7 +354,11 @@ END app_logon_trigger;
 
 ---
 
-## Version Notes
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
 
 - **Oracle 12.2+**: `ACCESSIBLE BY` clause enforces compile-time access control between PL/SQL units.
 - **Oracle 12c+**: `DBMS_PRIVILEGE_CAPTURE` enables privilege analysis — identifies which privileges are actually used, helping implement least privilege.

@@ -39,6 +39,7 @@ Before writing any content, you MUST:
 Before writing the file, answer each question:
 
 - [ ] What is the minimum product version required for each feature covered?
+- [ ] Does the file include an explicit `## Oracle Version Notes (19c vs 26ai)` section?
 - [ ] What are the exact command/flag/parameter names as shown in the docs?
 - [ ] What environment variables are documented? (List only what you found, not what seems plausible)
 - [ ] What are the documented limitations or unsupported scenarios?
@@ -55,6 +56,8 @@ Only now write the skills file. Rules:
 - Include ONLY content you found in the docs you fetched in Phase 1.
 - Every command, flag, syntax example, and parameter name must match the docs exactly.
 - If a feature works differently across versions, say so explicitly with version numbers.
+- Add a section named `## Oracle Version Notes (19c vs 26ai)` before `## Sources` when version differences are relevant.
+- In that section, identify 19c baseline behavior and 26ai-capable features with compatibility notes.
 - Do not extrapolate. If the docs show flag X works one way, do not assume
   related flag Y works similarly unless the docs say so.
 - If you are uncertain about anything, use the warning callout:
@@ -71,7 +74,8 @@ After writing, re-read the file and for each code block or command example ask:
 1. "Did I find this exact syntax in the official docs?" → If no, remove or flag it.
 2. "Did I invent any parameter names, env vars, or flags?" → If yes, remove them.
 3. "Are version requirements stated where relevant?" → If no, add them.
-4. "Is there anything here that sounds plausible but I cannot point to a doc source for?" → Remove or flag it.
+4. "Did I include `## Oracle Version Notes (19c vs 26ai)` when version-specific features appear?" → If no, add it.
+5. "Is there anything here that sounds plausible but I cannot point to a doc source for?" → Remove or flag it.
 
 Report which doc URLs you used as sources at the bottom of the file under a
 `## Sources` section.
