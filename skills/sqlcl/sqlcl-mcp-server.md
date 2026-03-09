@@ -313,6 +313,25 @@ The only environment variable documented for the SQLcl MCP server is `TNS_ADMIN`
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| SQLcl MCP server (`-mcp` flag) | SQLcl 25.2+ |
+| `conn -save` / `conn -savepwd` connection store | SQLcl 20.2+ |
+| Java 17 or 21 required | SQLcl 25.2+ (Java 11 dropped) |
+| MCP `execute-sql` tool | SQLcl 25.2+ |
+| MCP `run-script` tool | SQLcl 25.2+ |
+
+- The MCP server was introduced in SQLcl 25.2. It is not available in SQLcl 24.3 or earlier. No Oracle Database version upgrade is required — the MCP server works with Oracle Database 19c and later.
+- The Oracle Database version determines which SQL syntax and features the AI can use through the MCP session. On Oracle Database 19c, AI-generated queries must avoid 21c/23c-only features (native JSON type, JSON Duality Views, `IF NOT EXISTS`, `BOOLEAN` column type, etc.).
+
+---
+
 ## Sources
 
 - [Oracle SQLcl 25.2 User's Guide](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.2/sqcug/oracle-sqlcl-users-guide.pdf)

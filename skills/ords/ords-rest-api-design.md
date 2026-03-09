@@ -513,6 +513,26 @@ Aggregation:            GET    /v1/departments/:id/headcount
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| `ORDS.DEFINE_MODULE` / `DEFINE_TEMPLATE` / `DEFINE_HANDLER` | ORDS 3.0+ |
+| `collection_feed` and `item` source types | ORDS 3.0+ |
+| `plsql/block` source type | ORDS 3.0+ |
+| Implicit parameters (`:body`, `:body_text`, `:content_type`) | ORDS 3.0+ |
+| JSON Duality View as a REST handler source | ORDS 23.2+ with Oracle DB 23c |
+| `media_feed` source type for BLOB/CLOB serving | ORDS 18.1+ |
+
+- All `ORDS.DEFINE_*` procedures work with Oracle Database 19c and ORDS 3+. No Oracle DB version-specific SQL features are required for basic REST handler definitions.
+- When using `collection_feed` on Oracle Database 23c, the result set can include native `JSON` column types directly; on 19c, JSON stored as `VARCHAR2` or `CLOB` is returned as a JSON string and must be parsed by the client.
+
+---
+
 ## Sources
 
 - [ORDS Developer's Guide — Creating and Editing REST APIs](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.2/orddg/developing-oracle-rest-data-services-applications.html)

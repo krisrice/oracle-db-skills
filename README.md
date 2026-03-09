@@ -2,7 +2,7 @@
 
 A comprehensive reference library covering every major aspect of working with Oracle Database — from SQL development and PL/SQL best practices to performance tuning, security, migrations, ORDS, and AI-assisted development via the SQLcl MCP server.
 
-**102 reference guides** organized across 14 categories. Each file is a standalone comprehensive guide with explanations, practical examples, best practices, and common mistakes.
+**101 reference guides** organized across 14 categories. Each file is a standalone comprehensive guide with explanations, practical examples, best practices, and common mistakes.
 
 ## Version Coverage Standard
 

@@ -578,6 +578,26 @@ jobs:
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| utPLSQL v3.x framework | Oracle DB 11g R2+ |
+| `ut_mock` procedure/function mocking API | utPLSQL v3.1+ |
+| `DBMS_PROFILER` (basic coverage) | Oracle DB 8i+ |
+| `DBMS_PLSQL_CODE_COVERAGE` (line-level coverage) | Oracle DB 12.2+ |
+| `utPLSQL-cli` JUnit XML reporter | utPLSQL v3.0+ |
+
+- On Oracle Database 19c, use `DBMS_PLSQL_CODE_COVERAGE` for line-level code coverage. This is the recommended coverage mechanism for utPLSQL on 19c and later. Older `DBMS_PROFILER`-based coverage is available from 11g but provides less accurate line data.
+- The `ut_mock` mocking API requires utPLSQL v3.1 or later. Verify your installed utPLSQL version with `SELECT ut.version() FROM dual` before using mock expectations.
+- Test isolation using `PRAGMA AUTONOMOUS_TRANSACTION` in test setup/teardown works identically on all Oracle DB versions from 11g onwards.
+
+---
+
 ## Sources
 
 - [utPLSQL Documentation](https://utplsql.org/utPLSQL/latest/) — annotations, assertion API, reporters, coverage, mocking

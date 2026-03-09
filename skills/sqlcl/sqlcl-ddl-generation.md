@@ -552,6 +552,26 @@ Oracle auto-generates constraint names like `SYS_C00789123` for unnamed constrai
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| SQLcl `DDL` command | All SQLcl versions |
+| `SET DDL STORAGE OFF` / `SET DDL SEGMENT_ATTRIBUTES OFF` | All SQLcl versions |
+| `DBMS_METADATA.GET_DDL` | Oracle DB 9i+ |
+| `DBMS_METADATA.GET_DEPENDENT_DDL` | Oracle DB 9i+ |
+| Object name length up to 128 bytes in DDL | Oracle DB 12.2+ (30-byte limit in 12.1 and earlier) |
+| `WITH FUNCTION` DDL (inline SQL functions) | Oracle DB 12.1+ |
+
+- On Oracle Database 19c, `DBMS_METADATA` behaves identically to the patterns shown in this file. The `SET DDL` options are SQLcl-specific and available in all SQLcl versions.
+- When capturing DDL from Oracle Database 23c schemas, object names may be up to 128 bytes. If the DDL is deployed to a 12.1 or earlier target, names longer than 30 characters will fail. Validate object name lengths before cross-version deployments.
+
+---
+
 ## Sources
 
 - [Oracle SQLcl 25.2 User's Guide](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.2/sqcug/oracle-sqlcl-users-guide.pdf)

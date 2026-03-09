@@ -496,6 +496,25 @@ Scripts written for GraalJS using `const`, arrow functions, or `for...of` will f
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| SQLcl `script` command (JavaScript) | All SQLcl versions |
+| Nashorn JavaScript engine (ES5) | SQLcl with Java 11 (Nashorn bundled in JDK 11) |
+| GraalJS JavaScript engine (ES2021+) | SQLcl with Java 17+ and GraalVM JS plugin, or GraalVM JDK |
+| Java 17 or 21 requirement | SQLcl 25.2+ (Java 11 dropped) |
+| `ctx.write()` / `ctx.execute()` scripting API | All SQLcl versions |
+
+- SQLcl 25.2+ requires Java 17 or Java 21. Nashorn (which was included with Java 11) is no longer available. All JavaScript scripting on SQLcl 25.2+ uses GraalJS. Install the GraalVM JavaScript plugin (`gu install js`) if you are not running GraalVM.
+- SQLcl scripting interacts with the Oracle Database through SQLcl's JDBC layer. The JavaScript code itself is independent of the Oracle DB version; however, the SQL you execute within scripts must be compatible with your target database version (19c vs 26ai).
+
+---
+
 ## Sources
 
 - [Oracle oracle-db-tools SQLcl Scripting Guide (GitHub)](https://github.com/oracle/oracle-db-tools/blob/master/sqlcl/SCRIPTING.md)

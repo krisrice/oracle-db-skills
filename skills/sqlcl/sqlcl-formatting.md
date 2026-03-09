@@ -563,6 +563,25 @@ In `DEFAULT` format, `PAGESIZE 0` removes headers. In `CSV` format, the header r
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| `SET SQLFORMAT CSV/JSON/XML/INSERT/LOADER` | All SQLcl versions |
+| `SET SQLFORMAT ANSICONSOLE` | All SQLcl versions |
+| `SET SQLFORMAT JSON-FORMATTED` (pretty-printed JSON) | SQLcl 21.4+ |
+| `COLUMN` formatting commands | All SQLcl versions |
+| `SPOOL` command | All SQLcl versions |
+
+- SQLcl formatting commands are independent of the Oracle Database version. `SET SQLFORMAT` options format query results in the SQLcl client layer; the Oracle DB server version does not affect available formats.
+- The `JSON-FORMATTED` output mode (pretty-printed, one document per result set) was introduced in SQLcl 21.4. On earlier SQLcl releases, use `SET SQLFORMAT JSON` and post-process the output with a JSON formatter if needed.
+
+---
+
 ## Sources
 
 - [Oracle SQLcl 25.2 User's Guide](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.2/sqcug/oracle-sqlcl-users-guide.pdf)

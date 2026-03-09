@@ -463,6 +463,25 @@ FROM dba_ords_enabled_schemas;
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| `ORDS.ENABLE_OBJECT` for tables and views | ORDS 3.0+ |
+| `ORDS.ENABLE_SCHEMA` with `p_auto_rest_auth` parameter | ORDS 18.3+ |
+| AutoREST on object-relational types | ORDS 18.1+ |
+| `user_ords_enabled_objects` metadata view | ORDS 3.0+ |
+| AutoREST on JSON Duality Views | ORDS 23.2+ with Oracle DB 23c |
+
+- AutoREST is supported on Oracle Database 19c for all standard relational tables and views. JSON Duality View exposure via AutoREST requires Oracle Database 23c and ORDS 23.2 or later.
+- The `q` filter query parameter syntax and `orderBy` / `offset` / `limit` parameters are consistent across ORDS 18+ and all Oracle DB versions supported by ORDS.
+
+---
+
 ## Sources
 
 - [ORDS Developer's Guide — AutoREST](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.2/orddg/developing-oracle-rest-data-services-applications.html)

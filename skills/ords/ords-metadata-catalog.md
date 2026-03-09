@@ -467,6 +467,25 @@ This generates a script that calls all the necessary `ORDS.DEFINE_MODULE`, `ORDS
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| OpenAPI 2.0 (Swagger) generation | ORDS 18.1+ |
+| OpenAPI 3.0 generation | ORDS 22.1+ |
+| `metadata-catalog` endpoint | ORDS 3.0+ |
+| Module-level OpenAPI document (`/ords/{schema}/{module}/metadata-catalog/`) | ORDS 18.1+ |
+| API documentation for JSON Duality View handlers | ORDS 23.2+ with Oracle DB 23c |
+
+- On ORDS versions prior to 22.1, the `metadata-catalog` endpoint generates Swagger 2.0 (OpenAPI 2.0) documents. Import these into Postman using the Swagger 2.0 import option. Upgrade to ORDS 22.1+ to obtain OpenAPI 3.0 output.
+- The Oracle Database version does not affect metadata catalog generation; it is driven entirely by the ORDS version and REST module configuration.
+
+---
+
 ## Sources
 
 - [ORDS Developer's Guide — OpenAPI and Metadata Catalog](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.2/orddg/developing-oracle-rest-data-services-applications.html)

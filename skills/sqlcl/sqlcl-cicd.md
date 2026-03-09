@@ -680,6 +680,26 @@ Using a DBA or ADMIN account for routine deployments is a security risk and make
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| SQLcl built-in Liquibase (`lb` command) | SQLcl 20.2+ |
+| SQLcl CI/CD with Oracle Wallet (ATP/ADW) | SQLcl 20.2+ |
+| `WHENEVER SQLERROR EXIT` directive | All SQLcl versions |
+| `-S` (silent) flag | All SQLcl versions |
+| `-mcp` flag (MCP server mode) | SQLcl 25.2+ |
+| Java 17 or 21 requirement | SQLcl 25.2+ (Java 11 support dropped) |
+
+- SQLcl 25.2 dropped Java 11 support. CI/CD runners must be updated to JDK 17 or JDK 21. Pipelines that install or pin SQLcl should verify the Java version alongside the SQLcl version.
+- On Oracle Database 19c, all SQLcl CI/CD patterns in this file function without modification. Version-specific Oracle SQL features (e.g., native JSON type in 21c, JSON Duality Views in 23c) must be excluded from scripts targeting 19c.
+
+---
+
 ## Sources
 
 - [Starting and Leaving SQLcl — startup flags reference](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.2/sqcug/startup-sqlcl-settings.html)

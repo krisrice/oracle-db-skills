@@ -544,6 +544,26 @@ Auto-REST with `p_auto_rest_auth => FALSE` makes all CRUD operations publicly ac
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| APEX 22+ (requires ORDS; `mod_plsql` removed) | APEX 22.x, ORDS 22+ |
+| APEX REST Workshop and native REST Data Source | APEX 20.1+ |
+| Native JSON data type support in APEX | Oracle DB 21c |
+| JSON Duality Views as APEX data source | Oracle DB 23c |
+| APEX AI features (Generative AI, Select AI) | Oracle DB 23ai / APEX 24+ |
+| `APEX_APPLICATION_ADMIN` package (replaces `FLOWS_FILES`) | APEX 18.1+ |
+
+- On Oracle Database 19c, use `APEX_JSON` for JSON generation and consumption within PL/SQL APEX code. The native `JSON` SQL/PL/SQL type is available from Oracle 21c onwards.
+- APEX 22+ no longer supports `mod_plsql`. All deployments require ORDS as the HTTP listener. Ensure ORDS is installed and configured before upgrading APEX on Oracle 19c.
+
+---
+
 ## Sources
 
 - [Oracle APEX Documentation](https://docs.oracle.com/en/database/oracle/apex/)

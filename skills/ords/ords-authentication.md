@@ -418,6 +418,25 @@ END;
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| OAuth2 client credentials and authorization code flows | ORDS 3.0+ |
+| JWT Profile for third-party identity providers | ORDS 22.3+ |
+| `OAUTH.RESET_CLIENT_SECRET` procedure | ORDS 19.1+ |
+| CDB-level ORDS authentication (common user `C##ORDS_PUBLIC_USER`) | ORDS 21.4+ |
+| PKCE support for public clients | Check your specific ORDS release notes |
+
+- On Oracle Database 19c with older ORDS (pre-22.3), JWT validation must be handled via custom PL/SQL; the JWT Profile feature was introduced in ORDS 22.3.
+- The `user_ords_clients` and `user_ords_client_roles` metadata views are available in all ORDS 3+ installations regardless of Oracle DB version.
+
+---
+
 ## Sources
 
 - [ORDS Developer's Guide — Securing Oracle REST Data Services](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.2/orddg/about-oracle-rest-data-services.html)

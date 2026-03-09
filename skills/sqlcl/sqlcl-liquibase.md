@@ -488,6 +488,26 @@ The `DATABASECHANGELOG` lives in the database, not in version control. Do not tr
 
 ---
 
+## Oracle Version Notes (19c vs 26ai)
+
+- Baseline guidance in this file is valid for Oracle Database 19c unless a newer minimum version is explicitly called out.
+- Features marked as 21c, 23c, or 23ai should be treated as Oracle Database 26ai-capable features; keep 19c-compatible alternatives for mixed-version estates.
+- For dual-support environments, test syntax and package behavior in both 19c and 26ai because defaults and deprecations can differ by release update.
+
+| Feature | Minimum Version |
+|---------|----------------|
+| SQLcl built-in Liquibase (`lb` command) | SQLcl 20.2+ |
+| `lb generate-schema` (Oracle-specific) | SQLcl 20.2+ |
+| `lb generate-object` | SQLcl 21.2+ |
+| Core Liquibase operations (update, rollback, diff) | SQLcl 20.2+ |
+| `splitStatements="false"` for PL/SQL changesets | All Liquibase versions |
+| Oracle Wallet support for ATP/ADW connections | SQLcl 20.2+ |
+
+- The `lb generate-schema` command captures the full schema DDL into Liquibase-formatted changelogs. It is an Oracle-specific SQLcl extension not available in the standalone Liquibase CLI.
+- On Oracle Database 19c, all Liquibase operations shown in this file work without modification. When using Liquibase changelogs targeting Oracle DB 23c features (e.g., JSON Duality Views, `IF NOT EXISTS` DDL clauses), set a minimum DB version guard in your changelog or use conditional changesets.
+
+---
+
 ## Sources
 
 - [Oracle SQLcl 25.2 User's Guide](https://docs.oracle.com/en/database/oracle/sql-developer-command-line/25.2/sqcug/oracle-sqlcl-users-guide.pdf)
