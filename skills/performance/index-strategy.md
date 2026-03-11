@@ -358,6 +358,133 @@ WHERE  ac.constraint_type = 'R'  -- Referential (FK)
 
 ---
 
+## Automatic Indexing (19c+)
+
+Oracle 19c introduced Automatic Indexing, which uses machine learning to continuously analyze the SQL workload, identify candidate indexes, validate them against real queries, and promote or drop them automatically. It is available in Oracle Database 19c Enterprise Edition (with Diagnostics and Tuning packs) and on Autonomous Database.
+
+### How It Works
+
+1. Oracle analyzes SQL statements in the cursor cache for full table scans and index range scan opportunities.
+2. Candidate indexes are created **invisibly** (no plan impact yet).
+3. Each candidate is validated by re-running relevant SQL with and without the index.
+4. Indexes that improve performance are made **visible** (or implemented directly, depending on mode).
+5. Indexes that are never used are automatically dropped after the configured retention period.
+
+### Configuration
+
+```sql
+-- Check current Auto Indexing configuration
+SELECT parameter_name, parameter_value
+FROM   dba_auto_index_config;
+
+-- Set the operating mode
+-- IMPLEMENT: creates and makes visible automatically (default on Autonomous)
+-- REPORT ONLY: creates but keeps invisible; DBA must promote manually
+-- OFF: disabled
+EXEC DBMS_AUTO_INDEX.CONFIGURE('AUTO_INDEX_MODE', 'IMPLEMENT');
+
+-- Restrict to specific schemas (comma-separated; NULL = all schemas)
+EXEC DBMS_AUTO_INDEX.CONFIGURE('AUTO_INDEX_SCHEMA', 'HR, OE', allow => TRUE);
+
+-- Exclude a schema
+EXEC DBMS_AUTO_INDEX.CONFIGURE('AUTO_INDEX_SCHEMA', 'SCOTT', allow => FALSE);
+
+-- Set retention period for unused auto indexes (days; default 373)
+EXEC DBMS_AUTO_INDEX.CONFIGURE('AUTO_INDEX_RETENTION_FOR_AUTO', '90');
+
+-- Set retention for manually created indexes tracked by auto indexing (days)
+EXEC DBMS_AUTO_INDEX.CONFIGURE('AUTO_INDEX_RETENTION_FOR_MANUAL', NULL);
+
+-- Limit tablespace used by auto indexes (MB; NULL = no limit)
+EXEC DBMS_AUTO_INDEX.CONFIGURE('AUTO_INDEX_SPACE_BUDGET', '2048');
+```
+
+### Monitoring Activity
+
+```sql
+-- View recent Auto Indexing task executions
+SELECT execution_name,
+       execution_start,
+       execution_end,
+       status,
+       new_indexes_found,
+       new_indexes_created,
+       indexes_dropped
+FROM   dba_auto_index_executions
+ORDER BY execution_start DESC
+FETCH FIRST 10 ROWS ONLY;
+
+-- View index actions taken (created, dropped, made visible, etc.)
+SELECT index_name,
+       table_owner,
+       table_name,
+       action,
+       status,
+       reason,
+       creation_date
+FROM   dba_auto_index_ind_actions
+ORDER BY creation_date DESC;
+
+-- View all auto-created indexes and their current state
+SELECT ai.index_name,
+       ai.table_owner,
+       ai.table_name,
+       ai.indexing_status,   -- VALID, UNUSABLE, etc.
+       ui.status,
+       ui.visibility,
+       ui.last_analyzed
+FROM   dba_auto_indexes ai
+JOIN   dba_indexes ui
+  ON   ai.index_name  = ui.index_name
+  AND  ai.table_owner = ui.owner;
+```
+
+### Generating a Report
+
+```sql
+-- Activity report for the last 24 hours (returns CLOB)
+SELECT DBMS_AUTO_INDEX.REPORT_ACTIVITY(
+  activity_start => SYSDATE - 1,
+  activity_end   => SYSDATE,
+  type           => 'TEXT',
+  section        => 'ALL'
+) AS report
+FROM dual;
+```
+
+### Promoting a REPORT ONLY Index to Visible
+
+When running in `REPORT ONLY` mode, Oracle creates indexes but keeps them invisible. After reviewing the activity report, promote those you want:
+
+```sql
+-- Manually make an auto index visible after review
+ALTER INDEX hr.sys_ai_abc123 VISIBLE;
+
+-- Or use DBMS_AUTO_INDEX to accept a specific index
+-- (marks it as manually accepted, preventing automatic drop)
+EXEC DBMS_AUTO_INDEX.CONFIGURE('AUTO_INDEX_MODE', 'IMPLEMENT');
+```
+
+### Limitations
+
+- Does not create **bitmap indexes**, **function-based indexes**, **IOT indexes**, or **cluster indexes** — only B-tree.
+- Does not index columns on **index-organized tables** or **external tables**.
+- Requires **Diagnostics Pack** + **Tuning Pack** licenses (on-premises).
+- On Autonomous Database, it is always enabled and cannot be fully disabled (only set to REPORT ONLY).
+- Auto-created indexes are prefixed with `SYS_AI_` and visible in `DBA_AUTO_INDEXES`.
+
+### When to Use vs. Manual Indexing
+
+| Scenario | Recommendation |
+|---|---|
+| Autonomous Database | Auto Indexing is on by default; supplement with manual indexes for complex cases |
+| On-premises with licensed packs, stable schema | Enable in IMPLEMENT mode; review reports weekly |
+| On-premises, want control | Use REPORT ONLY; promote candidates after review |
+| Rapidly changing schema or workload | Disable; manual indexing gives more predictability |
+| Missing index causing an emergency | Create manually — Auto Indexing runs on a schedule (typically hourly) |
+
+---
+
 ## Best Practices
 
 - **Index selectively:** Add indexes only when you have evidence (explain plan, ASH, AWR) that they will be used.
@@ -399,3 +526,6 @@ WHERE  ac.constraint_type = 'R'  -- Referential (FK)
 - [USER_INDEXES / DBA_INDEXES — Oracle Database 19c Reference](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/USER_INDEXES.html)
 - [DBA_INDEX_USAGE — Oracle Database 19c Reference (12cR2+)](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/DBA_INDEX_USAGE.html)
 - [V$OBJECT_USAGE — Oracle Database 19c Reference](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/V-OBJECT_USAGE.html)
+- [DBMS_AUTO_INDEX — Oracle Database 19c PL/SQL Packages and Types Reference](https://docs.oracle.com/en/database/oracle/oracle-database/19/arpls/DBMS_AUTO_INDEX.html)
+- [DBA_AUTO_INDEXES — Oracle Database 19c Reference](https://docs.oracle.com/en/database/oracle/oracle-database/19/refrn/DBA_AUTO_INDEXES.html)
+- [Automatic Indexing in Oracle Database 19c (Technical Paper)](https://www.oracle.com/technetwork/database/automatic-indexing-19c-wp-5324365.pdf)

@@ -287,6 +287,10 @@ WHERE  table_name = 'EMPLOYEES';
 ALTER INDEX hr.emp_name_idx MONITORING USAGE;
 ```
 
+### Automatic Indexing (19c+)
+
+Oracle 19c+ can automatically identify, create, validate, and drop indexes based on SQL workload analysis. See **`skills/performance/index-strategy.md` — Automatic Indexing** for configuration (`DBMS_AUTO_INDEX`), monitoring views (`DBA_AUTO_INDEX_EXECUTIONS`, `DBA_AUTO_INDEX_IND_ACTIONS`), and when to use it vs. manual indexing.
+
 ### Invisible Indexes
 
 Test a new index without affecting production plans until validated:
