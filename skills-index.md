@@ -143,3 +143,26 @@ A tracking file for skills.md topics to create for working with Oracle DB.
 - [x] `materialized-views.md` — MV refresh strategies, query rewrite
 - [x] `database-links.md` — DBLinks, distributed queries, risks
 - [x] `oracle-apex.md` — Low-code app dev on Oracle
+
+## Container Images
+- [x] `SKILLS.md` — Full container skills index (common and advanced/niche)
+- [x] `cman.md` — Oracle Connection Manager container repository and OCR pull guidance
+- [x] `enterprise.md` — Oracle AI Database Server Release 26ai Enterprise Edition container image
+- [x] `graph-quickstart.md` — Property Graph quickstart image built on Oracle AI Database 26ai Free
+- [x] `gsm.md` — Oracle Global Service Manager container for Globally Distributed Database deployments
+- [x] `instantclient.md` — Oracle Instant Client container image with Basic, SDK, and SQL*Plus packages
+- [x] `microtx-ee-console.md` — Oracle Transaction Manager for Microservices Console container image
+- [x] `microtx-ee-coordinator.md` — Oracle Transaction Manager for Microservices Enterprise Edition coordinator image
+- [x] `rac.md` — Oracle RAC container deployment guidance for Podman
+- [x] `private-ai.md` — Oracle Private AI Services container image and setup guidance
+- [x] `adb-free.md` — Oracle Autonomous Database Free container image with ADW/ATP guidance
+- [x] `free.md` — Oracle AI Database 26ai Free container image
+- [x] `observability-exporter.md` — Unified observability exporter image for Oracle Database metrics, logs, and tracing
+- [x] `operator.md` — Oracle Database Operator for Kubernetes image repository
+- [x] `ords.md` — Oracle REST Data Services container image repository
+- [x] `otmm.md` — Oracle Transaction Manager for Microservices Free image repository
+- [x] `sqlcl.md` — Oracle SQL Command Line (SQLcl) container image repository
+- [x] `enterprise_ru.md` — Oracle Database Enterprise Edition CPU release-update image repository
+- [x] `gsm_ru.md` — Oracle Global Service Manager CPU repository stream
+- [x] `rac_ru.md` — Oracle RAC release-update container image repository
+- [x] `container-selection-matrix.md` — Decision matrix for choosing the right OCR database-category container image

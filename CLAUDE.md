@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Repository Is
 
-A library of 102 standalone Oracle Database reference guides (skill files) organized by category under `skills/`. Each file covers one topic with explanations, examples, and version-specific notes. There is no build system, test suite, or compilation step — this is a pure Markdown content library.
+A library of 128 standalone Oracle Database and OCR container reference guides (skill files) organized by category under `skills/`. Each file covers one topic with explanations, examples, and version-specific notes. There is no build system, test suite, or compilation step — this is a pure Markdown content library.
 
 ## Adding or Modifying Skill Files
 
@@ -43,7 +43,7 @@ When adding a new skill file, update all four of these files.
 | Topic | Directory |
 |-------|-----------|
 | Backup, recovery, RMAN, redo/undo, users | `skills/admin/` |
-| JDBC, connection pooling, JSON, XML, spatial, full-text, transactions | `skills/appdev/` |
+| JDBC, connection pooling, JSON, XML, spatial, full-text, transactions, property graphs | `skills/appdev/` |
 | RAC, CDB/PDB, Exadata, In-Memory, OCI, ATP/ADW, Data Guard | `skills/architecture/` |
 | ERD, data modeling, partitioning, tablespaces | `skills/design/` |
 | Liquibase, Flyway, online ops, EBR, utPLSQL, git for SQL | `skills/devops/` |
@@ -56,6 +56,7 @@ When adding a new skill file, update all four of these files.
 | Privileges, VPD, TDE, encryption, auditing, network security | `skills/security/` |
 | SQL patterns, window functions, CTEs, dynamic SQL, injection | `skills/sql-dev/` |
 | SQLcl commands, scripting, Liquibase CLI, MCP server, CI/CD | `skills/sqlcl/` |
+| Oracle Container Registry images, container pull commands, tags, and OCR repository selection | `skills/containers/` |
 
 ## Key Starting Points
 
@@ -64,6 +65,7 @@ When adding a new skill file, update all four of these files.
 - [skills/performance/explain-plan.md](skills/performance/explain-plan.md) — foundation for SQL performance work
 - [skills/plsql/plsql-package-design.md](skills/plsql/plsql-package-design.md) — foundation for PL/SQL architecture
 - [skills/devops/schema-migrations.md](skills/devops/schema-migrations.md) — Liquibase/Flyway with Oracle in CI/CD
+- [skills/containers/container-selection-matrix.md](skills/containers/container-selection-matrix.md) — quick decision matrix for choosing the right OCR database-category image
 
 ## GitHub Ruleset
 

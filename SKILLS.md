@@ -1,6 +1,6 @@
 # Oracle DB Skills
 
-108 Oracle Database reference guides for AI agents. Each file is a standalone skill covering one topic with examples, best practices, and common mistakes.
+128 Oracle Database and OCR container reference guides for AI agents. Each file is a standalone skill covering one topic with examples, best practices, and common mistakes.
 
 **Install:** `npx skills add krisrice/oracle-db-skills`
 
@@ -116,3 +116,23 @@
 | `skills/ords/ords-metadata-catalog.md` | ords | OpenAPI 3.0 generation, Swagger UI/Postman integration, metadata views |
 | `skills/ords/ords-security.md` | ords | HTTPS enforcement, CORS via `ords config set`, wallet-based secrets, request validation |
 | `skills/ords/ords-monitoring.md` | ords | Log configuration, request logging, connection pool monitoring, error diagnosis |
+| `skills/containers/cman.md` | containers | OCR repo for Oracle Connection Manager containers and pull/tag guidance |
+| `skills/containers/enterprise.md` | containers | Oracle AI Database Server Release 26ai Enterprise Edition container image |
+| `skills/containers/graph-quickstart.md` | containers | Property Graph quickstart image built on Oracle AI Database 26ai Free |
+| `skills/containers/gsm.md` | containers | Oracle Global Service Manager container for Globally Distributed Database deployments |
+| `skills/containers/instantclient.md` | containers | Oracle Instant Client container image with Basic, SDK, and SQL*Plus packages |
+| `skills/containers/microtx-ee-console.md` | containers | Oracle Transaction Manager for Microservices Console container image |
+| `skills/containers/microtx-ee-coordinator.md` | containers | Oracle Transaction Manager for Microservices Enterprise Edition coordinator image |
+| `skills/containers/rac.md` | containers | Oracle RAC container deployment guidance for Podman |
+| `skills/containers/private-ai.md` | containers | Oracle Private AI Services container image, setup modes, and OCR version notes |
+| `skills/containers/adb-free.md` | containers | Oracle Autonomous Database Free container image with ADW/ATP guidance |
+| `skills/containers/free.md` | containers | Oracle AI Database 26ai Free container image |
+| `skills/containers/observability-exporter.md` | containers | Unified observability exporter image for Oracle Database metrics, logs, and tracing |
+| `skills/containers/operator.md` | containers | Oracle Database Operator for Kubernetes image repository |
+| `skills/containers/ords.md` | containers | Oracle REST Data Services container image repository |
+| `skills/containers/otmm.md` | containers | Oracle Transaction Manager for Microservices Free image repository |
+| `skills/containers/sqlcl.md` | containers | Oracle SQL Command Line (SQLcl) container image repository |
+| `skills/containers/enterprise_ru.md` | containers | Oracle Database Enterprise Edition CPU release-update image repository |
+| `skills/containers/gsm_ru.md` | containers | Oracle Global Service Manager CPU repository stream |
+| `skills/containers/rac_ru.md` | containers | Oracle RAC release-update container image repository |
+| `skills/containers/container-selection-matrix.md` | containers | Decision matrix for choosing the right OCR database-category container image |

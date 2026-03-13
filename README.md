@@ -1,6 +1,6 @@
 # Oracle DB Skills
 
-Oracle DB Skills is a curated library of 100+ practical, documentation-backed guides for working with Oracle Database, organized by domain: SQL and PL/SQL development, performance tuning, security, administration, monitoring, architecture, DevOps, migrations, SQLcl, ORDS, and Oracle-specific features. Each guide includes actionable examples, best practices, common pitfalls, sources, and explicit Oracle version compatibility notes for 19c and 26ai.
+Oracle DB Skills is a curated library of 128 practical, documentation-backed guides for working with Oracle Database and Oracle Container Registry database-category images, organized by domain: SQL and PL/SQL development, performance tuning, security, administration, monitoring, architecture, DevOps, migrations, SQLcl, ORDS, Oracle-specific features, and container-image repositories. The guides include actionable examples, best practices, common pitfalls, sources, and Oracle version compatibility notes where relevant.
 
 ## Version Coverage Standard
 
@@ -26,7 +26,7 @@ Oracle DB Skills is a curated library of 100+ practical, documentation-backed gu
 | [Performance & Tuning](#performance--tuning) | 7 | `skills/performance/` |
 | [Application Development](#application-development) | 14 | `skills/appdev/` |
 | [Security](#security) | 6 | `skills/security/` |
-| [Administration](#administration) | 6 | `skills/admin/` |
+| [Administration](#administration) | 5 | `skills/admin/` |
 | [Monitoring & Diagnostics](#monitoring--diagnostics) | 5 | `skills/monitoring/` |
 | [Architecture & Infrastructure](#architecture--infrastructure) | 6 | `skills/architecture/` |
 | [DevOps & CI/CD](#devops--cicd) | 5 | `skills/devops/` |
@@ -35,6 +35,7 @@ Oracle DB Skills is a curated library of 100+ practical, documentation-backed gu
 | [Oracle-Specific Features](#oracle-specific-features) | 6 | `skills/features/` |
 | [SQLcl](#sqlcl) | 8 | `skills/sqlcl/` |
 | [ORDS (Oracle REST Data Services)](#ords-oracle-rest-data-services) | 10 | `skills/ords/` |
+| [Container Images](#container-images) | 20 | `skills/containers/` |
 
 ---
 
@@ -272,6 +273,30 @@ Oracle DB Skills is a curated library of 100+ practical, documentation-backed gu
 
 ---
 
+## Container Images
+
+`skills/containers/`
+
+Common container skills in the primary index:
+
+| File | Description |
+|------|-------------|
+| `adb-free.md` | Oracle Autonomous Database Free container image with ADW/ATP workload guidance |
+| `enterprise.md` | Oracle AI Database Server Release 26ai Enterprise Edition container image |
+| `enterprise_ru.md` | Oracle Database Enterprise Edition CPU release-update image repository |
+| `free.md` | Oracle AI Database 26ai Free container image |
+| `instantclient.md` | Oracle Instant Client container image with Basic, SDK, and SQL*Plus packages |
+| `ords.md` | Oracle REST Data Services container image repository |
+| `rac.md` | Oracle Real Application Clusters container image guidance for Podman deployments |
+| `rac_ru.md` | Oracle RAC release-update container image repository |
+| `sqlcl.md` | Oracle SQL Command Line (SQLcl) container image repository |
+| `container-selection-matrix.md` | Decision matrix for choosing the right OCR database-category container image |
+
+Complete container list (common + advanced/niche): `skills/containers/SKILLS.md`
+(`skills/containers/SKILLS.md` is an index helper and is not counted as a standalone skill guide.)
+
+---
+
 ## Structure
 
 ```
@@ -282,6 +307,7 @@ oracle-db-skills/
     ├── admin/               # Administration
     ├── appdev/              # Application Development
     ├── architecture/        # Architecture & Infrastructure
+    ├── containers/          # OCR Database-category container repositories
     ├── design/              # Database Design & Modeling
     ├── devops/              # DevOps & CI/CD
     ├── features/            # Oracle-Specific Features
