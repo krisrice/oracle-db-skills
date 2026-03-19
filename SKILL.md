@@ -9,7 +9,7 @@ A collection of 143 standalone reference guides for Oracle Database and OCR data
 
 ## How to Use
 
-1. **Find the right skill** using the category routing table below.
+1. **Find the right skill** using the category routing table below. For AI and containers, prefer the category-specific sub-index when the question is still broad.
 2. **Read only the file(s)** relevant to the user's task — do not load all files at once.
 3. **Apply the guidance** to answer questions, generate code, or review existing work.
 
@@ -18,7 +18,7 @@ A collection of 143 standalone reference guides for Oracle Database and OCR data
 | User asks about… | Read from |
 |------------------|-----------|
 | Backup, recovery, RMAN, redo/undo logs, users | `skills/admin/` |
-| Select AI, AI Agent, AI Vector Search, vector indexes, semantic search, RAG on Oracle AI Database | `skills/ai/` |
+| Select AI, AI Agent, AI Vector Search, vector indexes, semantic search, RAG on Oracle AI Database | `skills/ai/SKILLS.md` |
 | JDBC, connection pooling, JSON, XML, spatial, full-text, transactions, property graphs | `skills/appdev/` |
 | RAC, CDB/PDB, Exadata, In-Memory, OCI, ATP/ADW, Data Guard | `skills/architecture/` |
 | ERD, data modeling, partitioning, tablespaces | `skills/design/` |
@@ -32,7 +32,7 @@ A collection of 143 standalone reference guides for Oracle Database and OCR data
 | Privileges, VPD, TDE, encryption, auditing, network security | `skills/security/` |
 | SQL patterns, window functions, CTEs, dynamic SQL, injection | `skills/sql-dev/` |
 | SQLcl commands, scripting, Liquibase CLI, MCP server, CI/CD | `skills/sqlcl/` |
-| Oracle Container Registry images, container pull commands, tags, and OCR repository selection | `skills/containers/` |
+| Oracle Container Registry images, container pull commands, tags, and OCR repository selection | `skills/containers/SKILLS.md` |
 
 ## Skills Directory
 
@@ -58,8 +58,9 @@ skills/
 
 ## Key Starting Points
 
-- **`skills/ai/ai-vector-search.md`** — foundation for Oracle AI Vector Search concepts and indexing choices
-- **`skills/ai/select-ai.md`** — foundation for Select AI profiles, actions, prompt augmentation, and routing to deep-dive AI skills
+- **`skills/ai/SKILLS.md`** — task router for the AI category
+- **`skills/ai/ai-vector-search.md`** — entry point for Oracle AI Vector Search concepts and routing
+- **`skills/ai/select-ai.md`** — entry point for Select AI concepts and routing
 - **`skills/sqlcl/sqlcl-mcp-server.md`** — connecting AI assistants to Oracle via the SQLcl MCP server
 - **`skills/migrations/migration-assessment.md`** — start here for any database migration project
 - **`skills/performance/explain-plan.md`** — foundation for all SQL performance work

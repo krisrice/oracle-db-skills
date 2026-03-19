@@ -48,9 +48,9 @@ A tracking file for skills.md topics to create for working with Oracle DB.
 - [x] `golang-oracle.md` — godror driver, database/sql interface, named binds, REF CURSORs
 
 ## AI Database
-- [x] `ai-vector-search.md` — `VECTOR` data type, similarity search, distance metrics, vector indexes, hybrid search
+- [x] `ai-vector-search.md` — overview, capability boundaries, and routing to vector storage, SQL, indexing, and hybrid search skills
 - [x] `hybrid-vector-search.md` — `CREATE HYBRID VECTOR INDEX`, `DBMS_HYBRID_VECTOR`, hybrid query patterns
-- [x] `select-ai.md` — AI profiles, `DBMS_CLOUD_AI`, `SELECT AI` actions, prompt augmentation, metadata controls
+- [x] `select-ai.md` — overview, capability boundaries, and routing to profiles, actions, metadata, feedback, RAG, and agent skills
 - [x] `select-ai-actions.md` — `SELECT AI` / `DBMS_CLOUD_AI.GENERATE` actions, `showprompt`, `chat`, `translate`, `summarize`
 - [x] `select-ai-agent.md` — `DBMS_CLOUD_AI_AGENT`, teams, agents, tasks, tools, built-in tool support
 - [x] `select-ai-feedback.md` — `feedback` action, `DBMS_CLOUD_AI.FEEDBACK`, feedback vector index, SQL refinement workflow

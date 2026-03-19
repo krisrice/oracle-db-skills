@@ -111,23 +111,43 @@ Oracle DB Skills is a curated library of 143 practical, documentation-backed gui
 
 `skills/ai/`
 
+Complete AI task index: `skills/ai/SKILLS.md`
+(`skills/ai/SKILLS.md` is an index helper and is not counted as a standalone skill guide.)
+
+### Start Here
+
 | File | Description |
 |------|-------------|
-| `ai-vector-search.md` | Oracle AI Vector Search overview and routing guide |
-| `hybrid-vector-search.md` | `CREATE HYBRID VECTOR INDEX`, `DBMS_HYBRID_VECTOR`, hybrid query patterns |
-| `select-ai.md` | Select AI overview and routing guide |
-| `select-ai-actions.md` | `SELECT AI` / `DBMS_CLOUD_AI.GENERATE` actions, `showprompt`, `chat`, `translate`, `summarize` |
-| `select-ai-agent.md` | `DBMS_CLOUD_AI_AGENT`, teams, agents, tasks, tools, built-in tool support |
-| `select-ai-feedback.md` | `feedback` action, `DBMS_CLOUD_AI.FEEDBACK`, feedback vector index, SQL refinement workflow |
-| `select-ai-metadata.md` | `object_list`, metadata controls, comments, annotations, constraints, data access |
+| `select-ai.md` | Select AI overview, capability boundaries, and routing guide |
+| `ai-vector-search.md` | Oracle AI Vector Search overview, capability boundaries, and routing guide |
+
+### Select AI
+
+| File | Description |
+|------|-------------|
 | `select-ai-profiles.md` | AI profile lifecycle, attributes, provider configuration, session activation |
+| `select-ai-actions.md` | `SELECT AI` / `DBMS_CLOUD_AI.GENERATE` actions, `showprompt`, `chat`, `translate`, `summarize` |
+| `select-ai-metadata.md` | `object_list`, metadata controls, comments, annotations, constraints, data access |
+| `select-ai-feedback.md` | `feedback` action, `DBMS_CLOUD_AI.FEEDBACK`, feedback vector index, SQL refinement workflow |
 | `select-ai-rag.md` | Select AI RAG flow, vector-index integration, `embedding_model`, `enable_sources` |
-| `select-ai-synthetic-data.md` | `GENERATE_SYNTHETIC_DATA`, params, monitoring status tables, metadata-clone workflows |
+
+### AI Vector Search
+
+| File | Description |
+|------|-------------|
 | `vector-data-type.md` | `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors |
-| `vector-diagnostics.md` | vector views, memory pool, initialization parameters, package landscape |
 | `vector-embeddings.md` | ONNX models, third-party embeddings, chunking, `DBMS_VECTOR_CHAIN` pipelines |
-| `vector-indexes.md` | IVF/HNSW, `CREATE VECTOR INDEX`, advisor procedures, restrictions |
 | `vector-operations.md` | distance metrics, operators, exact/approximate search, vector SQL functions |
+| `vector-indexes.md` | IVF/HNSW, `CREATE VECTOR INDEX`, advisor procedures, restrictions |
+| `hybrid-vector-search.md` | `CREATE HYBRID VECTOR INDEX`, `DBMS_HYBRID_VECTOR`, hybrid query patterns |
+
+### Advanced / Diagnostics
+
+| File | Description |
+|------|-------------|
+| `select-ai-agent.md` | `DBMS_CLOUD_AI_AGENT`, teams, agents, tasks, tools, built-in tool support |
+| `select-ai-synthetic-data.md` | `GENERATE_SYNTHETIC_DATA`, params, monitoring status tables, metadata-clone workflows |
+| `vector-diagnostics.md` | vector views, memory pool, initialization parameters, package landscape |
 
 ---
 

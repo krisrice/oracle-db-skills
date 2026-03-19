@@ -39,9 +39,9 @@
 | `skills/appdev/nodejs-oracledb.md` | appdev | node-oracledb driver, async/await, pools, result sets, LOBs |
 | `skills/appdev/dotnet-oracle.md` | appdev | ODP.NET managed driver, EF Core, array binding, OracleParameter |
 | `skills/appdev/golang-oracle.md` | appdev | godror driver, database/sql interface, named binds, REF CURSORs |
-| `skills/ai/ai-vector-search.md` | ai | `VECTOR` data type, similarity search, distance metrics, vector indexes, hybrid search |
+| `skills/ai/ai-vector-search.md` | ai | AI Vector Search overview, capability boundaries, and routing to storage, query, index, and hybrid-search skills |
 | `skills/ai/hybrid-vector-search.md` | ai | `CREATE HYBRID VECTOR INDEX`, `DBMS_HYBRID_VECTOR`, hybrid query patterns |
-| `skills/ai/select-ai.md` | ai | AI profiles, `DBMS_CLOUD_AI`, `SELECT AI` actions, prompt augmentation, metadata controls |
+| `skills/ai/select-ai.md` | ai | Select AI overview, capability boundaries, and routing to profiles, actions, metadata, feedback, RAG, and agent skills |
 | `skills/ai/select-ai-actions.md` | ai | `SELECT AI` / `DBMS_CLOUD_AI.GENERATE` actions, `showprompt`, `chat`, `translate`, `summarize` |
 | `skills/ai/select-ai-agent.md` | ai | `DBMS_CLOUD_AI_AGENT`, teams, agents, tasks, tools, built-in tool support |
 | `skills/ai/select-ai-feedback.md` | ai | `feedback` action, `DBMS_CLOUD_AI.FEEDBACK`, feedback vector index, SQL refinement workflow |
