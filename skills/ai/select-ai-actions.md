@@ -86,7 +86,7 @@ SELECT DBMS_CLOUD_AI.GENERATE(prompt       => 'how many customers',
 FROM dual;
 ```
 
-Current 26ai package surfaces expose both a four-argument form and an overload with `params`. Use named arguments and only pass `params` when the feature you are using documents it explicitly.
+Use named arguments and only pass `params` when the feature you are using documents it explicitly.
 
 ---
 

@@ -1,6 +1,6 @@
 # Oracle DB Skills
 
-143 Oracle Database and OCR container reference guides for AI agents. Each file is a standalone skill covering one topic with examples, best practices, and common mistakes.
+144 Oracle Database and OCR container reference guides for AI agents. Each file is a standalone skill covering one topic with examples, best practices, and common mistakes.
 
 **Install:** `npx skills add krisrice/oracle-db-skills`
 
@@ -52,6 +52,7 @@
 | `skills/ai/vector-data-type.md` | ai | `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors |
 | `skills/ai/vector-diagnostics.md` | ai | vector views, memory pool, initialization parameters, package landscape |
 | `skills/ai/vector-embeddings.md` | ai | ONNX models, third-party embeddings, chunking, `DBMS_VECTOR_CHAIN` pipelines |
+| `skills/ai/vector-packages.md` | ai | `DBMS_VECTOR`, `DBMS_VECTOR_CHAIN`, `DBMS_HYBRID_VECTOR`, reranking, generated text, package selection |
 | `skills/ai/vector-indexes.md` | ai | IVF/HNSW, `CREATE VECTOR INDEX`, advisor procedures, restrictions |
 | `skills/ai/vector-operations.md` | ai | distance metrics, operators, exact/approximate search, vector SQL functions |
 | `skills/security/privilege-management.md` | security | Least privilege, roles, DBMS_PRIVILEGE_CAPTURE, avoiding PUBLIC grants |

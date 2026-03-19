@@ -58,10 +58,6 @@ The capability matrix lists core procedures and functions including:
 - `SET_ATTRIBUTE`
 - `SET_ATTRIBUTES`
 
-Current 26ai package surfaces in the connected database also expose import/export and prompt-inspection helpers such as `EXPORT_TEAM`, `IMPORT_TEAM`, and `SHOW_AGENT_PROMPT`.
-
----
-
 ## Built-In Tools
 
 The capability matrix documents these built-in tool categories:

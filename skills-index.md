@@ -61,6 +61,7 @@ A tracking file for skills.md topics to create for working with Oracle DB.
 - [x] `vector-data-type.md` — `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors
 - [x] `vector-diagnostics.md` — vector views, memory pool, initialization parameters, package landscape
 - [x] `vector-embeddings.md` — ONNX models, third-party embeddings, chunking, `DBMS_VECTOR_CHAIN` pipelines
+- [x] `vector-packages.md` — `DBMS_VECTOR`, `DBMS_VECTOR_CHAIN`, `DBMS_HYBRID_VECTOR`, reranking, generated text, package selection
 - [x] `vector-indexes.md` — IVF/HNSW, `CREATE VECTOR INDEX`, advisor procedures, restrictions
 - [x] `vector-operations.md` — distance metrics, operators, exact/approximate search, vector SQL functions
 

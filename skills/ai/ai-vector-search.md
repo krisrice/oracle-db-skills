@@ -67,10 +67,11 @@ DISTANCE COSINE;
 |------|-----------|
 | define `VECTOR` columns, dense versus sparse storage, formats, or restrictions | `vector-data-type.md` |
 | build chunking, ONNX, or embedding pipelines | `vector-embeddings.md` |
+| choose between `DBMS_VECTOR`, `DBMS_VECTOR_CHAIN`, and `DBMS_HYBRID_VECTOR` package APIs | `vector-packages.md` |
 | choose metrics, operators, or exact versus approximate SQL patterns | `vector-operations.md` |
 | choose between IVF and HNSW or use advisor procedures | `vector-indexes.md` |
 | build keyword + semantic retrieval with `CREATE HYBRID VECTOR INDEX` or `DBMS_HYBRID_VECTOR` | `hybrid-vector-search.md` |
-| inspect memory, parameters, views, or packaged API surface area | `vector-diagnostics.md` |
+| inspect memory, parameters, or vector-specific views | `vector-diagnostics.md` |
 
 For the full task index across the AI category, read `skills/ai/SKILLS.md`.
 

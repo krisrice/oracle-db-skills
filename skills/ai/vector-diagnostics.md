@@ -4,7 +4,7 @@
 
 Oracle AI Vector Search includes dictionary views, initialization parameters, memory-pool views, and PL/SQL packages for operational diagnosis.
 
-Use this file when you need to inspect vector memory usage, understand vector-specific parameters, or map a troubleshooting task to the right view or package.
+Use this file when you need to inspect vector memory usage, understand vector-specific parameters, or map a troubleshooting task to the right diagnostic view.
 
 ---
 
@@ -70,10 +70,6 @@ Oracle documents the vector package landscape as:
 - `DBMS_VECTOR` for index operations, model loading, accuracy reports, and memory advisory
 - `DBMS_VECTOR_CHAIN` for chunking, embedding, reranking, text generation, and summarization
 - `DBMS_HYBRID_VECTOR` for hybrid search SQL generation and search execution
-
-Current 26ai package surfaces in the connected database match that three-package split.
-
----
 
 ## Best Practices
 

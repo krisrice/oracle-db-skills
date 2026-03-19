@@ -24,10 +24,12 @@ Complete index for AI-related skills in `skills/ai/`. Start with the overview gu
 | understand what Oracle AI Vector Search covers before choosing storage or indexing details | `ai-vector-search.md` |
 | define `VECTOR` columns, formats, dense/sparse storage, or restrictions | `vector-data-type.md` |
 | chunk content, import ONNX models, or build embedding pipelines | `vector-embeddings.md` |
+| choose between `DBMS_VECTOR`, `DBMS_VECTOR_CHAIN`, and `DBMS_HYBRID_VECTOR` package APIs | `vector-packages.md` |
+| use reranking, summarization, generated text, or other package-level vector helpers | `vector-packages.md` |
 | choose distance metrics, operators, or exact versus approximate SQL | `vector-operations.md` |
 | choose between IVF and HNSW or use vector-index advisors | `vector-indexes.md` |
 | implement keyword + semantic retrieval with hybrid vector indexes | `hybrid-vector-search.md` |
-| inspect vector memory, parameters, or packaged API surface area | `vector-diagnostics.md` |
+| inspect vector memory, initialization parameters, or vector-specific views | `vector-diagnostics.md` |
 
 ## Select AI
 
@@ -49,6 +51,7 @@ Complete index for AI-related skills in `skills/ai/`. Start with the overview gu
 | `ai-vector-search.md` | AI Vector Search overview, capability boundaries, and routing guide |
 | `vector-data-type.md` | `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors |
 | `vector-embeddings.md` | ONNX models, third-party embeddings, chunking, `DBMS_VECTOR_CHAIN` pipelines |
+| `vector-packages.md` | `DBMS_VECTOR`, `DBMS_VECTOR_CHAIN`, `DBMS_HYBRID_VECTOR`, reranking, generated text, package selection |
 | `vector-operations.md` | distance metrics, operators, exact/approximate search, vector SQL functions |
 | `vector-indexes.md` | IVF/HNSW, `CREATE VECTOR INDEX`, advisor procedures, restrictions |
 | `hybrid-vector-search.md` | `CREATE HYBRID VECTOR INDEX`, `DBMS_HYBRID_VECTOR`, hybrid query patterns |
@@ -59,4 +62,4 @@ Complete index for AI-related skills in `skills/ai/`. Start with the overview gu
 |------|-------------|
 | `select-ai-agent.md` | agent teams, tasks, and tools for Select AI workflows |
 | `select-ai-synthetic-data.md` | synthetic data generation workflows and monitoring |
-| `vector-diagnostics.md` | vector memory pool, initialization parameters, views, and packaged APIs |
+| `vector-diagnostics.md` | vector memory pool, initialization parameters, and diagnostic views |

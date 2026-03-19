@@ -1,6 +1,6 @@
 # Oracle DB Skills
 
-Oracle DB Skills is a curated library of 143 practical, documentation-backed guides for working with Oracle Database and Oracle Container Registry database-category images, organized by domain: SQL and PL/SQL development, AI Database topics, performance tuning, security, administration, monitoring, architecture, DevOps, migrations, SQLcl, ORDS, Oracle-specific features, and container-image repositories. The guides include actionable examples, best practices, common pitfalls, sources, and Oracle version compatibility notes where relevant.
+Oracle DB Skills is a curated library of 144 practical, documentation-backed guides for working with Oracle Database and Oracle Container Registry database-category images, organized by domain: SQL and PL/SQL development, AI Database topics, performance tuning, security, administration, monitoring, architecture, DevOps, migrations, SQLcl, ORDS, Oracle-specific features, and container-image repositories. The guides include actionable examples, best practices, common pitfalls, sources, and Oracle version compatibility notes where relevant.
 
 ## Version Coverage Standard
 
@@ -25,7 +25,7 @@ Oracle DB Skills is a curated library of 143 practical, documentation-backed gui
 | [SQL Development](#sql-development) | 6 | `skills/sql-dev/` |
 | [Performance & Tuning](#performance--tuning) | 7 | `skills/performance/` |
 | [Application Development](#application-development) | 14 | `skills/appdev/` |
-| [AI Database](#ai-database) | 15 | `skills/ai/` |
+| [AI Database](#ai-database) | 16 | `skills/ai/` |
 | [Security](#security) | 6 | `skills/security/` |
 | [Administration](#administration) | 5 | `skills/admin/` |
 | [Monitoring & Diagnostics](#monitoring--diagnostics) | 5 | `skills/monitoring/` |
@@ -137,6 +137,7 @@ Complete AI task index: `skills/ai/SKILLS.md`
 |------|-------------|
 | `vector-data-type.md` | `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors |
 | `vector-embeddings.md` | ONNX models, third-party embeddings, chunking, `DBMS_VECTOR_CHAIN` pipelines |
+| `vector-packages.md` | `DBMS_VECTOR`, `DBMS_VECTOR_CHAIN`, `DBMS_HYBRID_VECTOR`, reranking, generated text, package selection |
 | `vector-operations.md` | distance metrics, operators, exact/approximate search, vector SQL functions |
 | `vector-indexes.md` | IVF/HNSW, `CREATE VECTOR INDEX`, advisor procedures, restrictions |
 | `hybrid-vector-search.md` | `CREATE HYBRID VECTOR INDEX`, `DBMS_HYBRID_VECTOR`, hybrid query patterns |
@@ -147,7 +148,7 @@ Complete AI task index: `skills/ai/SKILLS.md`
 |------|-------------|
 | `select-ai-agent.md` | `DBMS_CLOUD_AI_AGENT`, teams, agents, tasks, tools, built-in tool support |
 | `select-ai-synthetic-data.md` | `GENERATE_SYNTHETIC_DATA`, params, monitoring status tables, metadata-clone workflows |
-| `vector-diagnostics.md` | vector views, memory pool, initialization parameters, package landscape |
+| `vector-diagnostics.md` | vector views, memory pool, initialization parameters, diagnostic routing |
 
 ---
 

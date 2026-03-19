@@ -33,7 +33,7 @@ DBMS_CLOUD_AI.CREATE_PROFILE
 );
 ```
 
-Oracle documentation and the connected 26ai database both show `DBMS_CLOUD_AI.SET_PROFILE` as the session-level activation step:
+Oracle documents `DBMS_CLOUD_AI.SET_PROFILE` as the session-level activation step:
 
 ```sql
 BEGIN
