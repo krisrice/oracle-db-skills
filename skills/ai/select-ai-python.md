@@ -20,8 +20,10 @@ For generic driver topics such as connection pooling, binds, LOBs, and low-level
 |---|---|
 | Select AI for Python overview, supported platforms, classes | Oracle Database Select AI User's Guide, **Select AI for Python** |
 | Python installation, connection, profile, action, async, vector-index examples | Oracle documentation, **Select AI for Python** |
+| Python object model reference for profiles, conversations, vector indexes, and agents | Oracle GitHub, **Select AI for Python documentation** |
 | Python agent classes | Autonomous Database documentation, **Select AI Agent for Python** |
 | Privilege and HTTP-access helper APIs | Oracle documentation, **Select AI for Python** |
+| Vector index Python API details | Oracle documentation, **Select AI for Python** |
 
 ---
 
@@ -30,8 +32,10 @@ For generic driver topics such as connection pooling, binds, LOBs, and low-level
 | If you need to... | Prefer | Read next |
 |---|---|---|
 | use a Python object model for profiles, conversations, vector indexes, or async workflows | `select_ai` | this file, then `select-ai-profiles.md` |
+| manage prompt history or conversation context from Python | `select_ai` conversations | this file, then `select-ai-prompts.md` |
 | issue one-off Select AI prompts from Python code that already executes SQL | `SELECT AI ...` through your existing driver path | `select-ai-actions.md` and `skills/appdev/python-oracledb.md` |
 | invoke package-level Select AI or agent APIs from Python | `DBMS_CLOUD_AI` / `DBMS_CLOUD_AI_AGENT` through your existing driver path | `select-ai-actions.md`, `select-ai-profiles.md`, `select-ai-agent.md`, and `skills/appdev/python-oracledb.md` |
+| create or manage vector indexes for Python-driven RAG | `select_ai` vector-index objects | this file, then `select-ai-rag.md` |
 | use Python agent, vector-index, or async helper classes | `select_ai` | this file, then `select-ai-agent.md` or `select-ai-rag.md` |
 
 The important distinction is that `select_ai` is a Python client library with its own classes, while `SELECT AI` and `DBMS_CLOUD_AI` remain database-side SQL and PL/SQL entry points.
@@ -43,6 +47,7 @@ The important distinction is that `select_ai` is a Python client library with it
 Oracle documents these Python-specific capabilities:
 
 - synchronous and asynchronous connection helpers
+- provider classes such as `OpenAIProvider`, `AzureProvider`, `OCIGenAIProvider`, `AWSProvider`, `GoogleProvider`, `AnthropicProvider`, `CohereProvider`, and `HuggingFaceProvider`
 - `Profile` and `ProfileAttributes`
 - `Conversation` and `ConversationAttributes`
 - `VectorIndex` and `VectorIndexAttributes`
@@ -121,6 +126,20 @@ This surface maps directly to the profile concepts covered in `select-ai-profile
 
 ---
 
+## Conversations and Prompt History
+
+Oracle documents conversation support as a first-class Python capability and lists `ConversationAttributes` among the supported classes.
+
+Use the Python conversation objects when the application needs:
+
+- prompt history across turns
+- chat-style interactions with preserved context
+- a Python object model instead of manual conversation-id handling
+
+For prompt shaping and inspection semantics, continue to use `select-ai-prompts.md`. For pure SQL or PL/SQL conversation flows, use the database-side Select AI documentation instead of the Python wrapper.
+
+---
+
 ## Prompt Actions from Python
 
 Oracle documents profile methods that mirror the Select AI action families:
@@ -174,6 +193,37 @@ Use the async surface when the application is already structured around `async` 
 
 ---
 
+## Fetch and Update Existing Objects
+
+Current Oracle documentation highlights two Python API improvements across proxy objects:
+
+- `fetch()` to retrieve an existing object from the database
+- `set_attribute()` and `set_attributes()` for consistent updates
+
+Use these methods when the application wants to treat Select AI objects as long-lived Python resources instead of repeatedly recreating them.
+
+This applies across the Python object model, including profiles, conversations, and vector indexes.
+
+---
+
+## Vector Indexes from Python
+
+Oracle documents `VectorIndex` and `VectorIndexAttributes` as the Python surface for RAG-oriented vector-index management.
+
+The current Python guide documents capabilities such as:
+
+- create or replace a vector index
+- enable or disable a vector index
+- delete a vector index
+- fetch an existing vector index object
+- manage attributes such as `chunk_size`, `chunk_overlap`, `location`, `object_storage_credential_name`, `profile_name`, `refresh_rate`, `similarity_threshold`, `vector_distance_metric`, and `pipeline_name`
+
+Oracle also documents that creating a vector index populates it from an object-store location using an async scheduler job.
+
+Use `VectorIndex` when the application wants a Python-managed RAG ingestion path. Use `select-ai-rag.md` for the Select AI semantics around vector-index-backed retrieval.
+
+---
+
 ## Vector Index and Agent Routing
 
 Oracle documents Python classes for vector-index and agent workflows:
@@ -189,6 +239,14 @@ Use `select_ai` when you want those workflows modeled as Python objects. Then re
 
 - `select-ai-rag.md` for Select AI RAG and vector-index semantics
 - `select-ai-agent.md` for database-side agent architecture, built-in tools, and `DBMS_CLOUD_AI_AGENT`
+
+Oracle's Python agent documentation also calls out:
+
+- synchronous classes: `Tool`, `Task`, `Agent`, `Team`
+- asynchronous classes: `AsyncTool`, `AsyncTask`, `AsyncAgent`, `AsyncTeam`
+- tool families for NLSQL, web search, RAG, PL/SQL, notifications, and custom functions
+
+Use the Python agent classes when the application wants to orchestrate agent objects directly in Python. Use `select-ai-agent.md` when the question is about database-side package orchestration, views, or SQL/PLSQL runtime behavior.
 
 ---
 
@@ -214,6 +272,8 @@ Do not treat Python client setup as replacing the underlying database privilege 
 - Choose one primary Python surface per workflow: `select_ai` object methods or explicit SQL/PL/SQL calls.
 - Keep driver concerns in `skills/appdev/python-oracledb.md` and Select AI semantics in the `skills/ai/` files.
 - Use `show_sql()` or `show_prompt()` during debugging before automating `run_sql()` flows.
+- Use `fetch()` and `set_attribute()` / `set_attributes()` when the workflow updates existing Select AI objects over time.
+- Use `VectorIndex` objects for Python-managed RAG ingestion instead of hand-assembling the same lifecycle as raw SQL if the application already depends on `select_ai`.
 - Use the same Select AI profile and metadata guidance from `select-ai-profiles.md`, `select-ai-metadata.md`, and `select-ai-accuracy.md` even when the caller is Python.
 - Check platform certification before standardizing on `select_ai` outside Autonomous Database 19c and Autonomous AI Database 26ai.
 
@@ -237,6 +297,10 @@ The underlying capability is Select AI, but the user-facing surfaces differ. `se
 
 Oracle documents certification for Autonomous Database 19c and Autonomous AI Database 26ai, and states that other platforms may work but are not certified.
 
+### Mistake 5: Routing Every Python Question to `select_ai`
+
+If the user is really asking about pools, binds, generic SQL execution, or PL/SQL invocation mechanics, the right landing file is still `skills/appdev/python-oracledb.md`.
+
 ---
 
 ## Oracle Version Notes (19c vs 26ai)
@@ -252,4 +316,6 @@ Oracle documents certification for Autonomous Database 19c and Autonomous AI Dat
 
 - [Oracle Database Select AI User's Guide - Select AI for Python](https://docs.oracle.com/en/database/oracle/oracle-database/26/selai/select-ai-python.html)
 - [Oracle documentation - Select AI for Python](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/pysai/G41793_03.pdf)
+- [Oracle documentation - Select AI for Python Release 1.2.2](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/pysai/G41793_04.pdf)
+- [Oracle GitHub - Select AI for Python documentation](https://oracle.github.io/python-select-ai/)
 - [Autonomous Database documentation - Select AI Agent for Python](https://docs.oracle.com/en-us/iaas/autonomous-database-serverless/doc/select-ai-agent-python.html)

@@ -15,6 +15,7 @@ Complete index for AI-related skills in `skills/ai/`. Start with the overview gu
 |-------------------|------|
 | understand what Select AI covers before choosing an implementation path | `select-ai.md` |
 | use Select AI from Python or choose between `select_ai`, SQL, and PL/SQL paths | `select-ai-python.md` |
+| manage Select AI conversations, vector indexes, or async object workflows from Python | `select-ai-python.md` |
 | improve overall Select AI NL2SQL accuracy | `select-ai-accuracy.md` |
 | configure providers, credentials, models, or session activation | `select-ai-profiles.md` |
 | choose between `showsql`, `runsql`, `showprompt`, `chat`, or `agent` | `select-ai-actions.md` |
@@ -24,6 +25,7 @@ Complete index for AI-related skills in `skills/ai/`. Start with the overview gu
 | apply or troubleshoot SQL refinement feedback | `select-ai-feedback.md` |
 | use Select AI with a vector store for RAG | `select-ai-rag.md` |
 | build teams, agents, tasks, or tools with `DBMS_CLOUD_AI_AGENT` | `select-ai-agent.md` |
+| inspect agent history views or resume a `WAITING_FOR_HUMAN` run | `select-ai-agent.md` |
 | generate synthetic data with Select AI | `select-ai-synthetic-data.md` |
 | understand what Oracle AI Vector Search covers before choosing storage or indexing details | `ai-vector-search.md` |
 | define `VECTOR` columns, formats, dense/sparse storage, or restrictions | `vector-data-type.md` |
