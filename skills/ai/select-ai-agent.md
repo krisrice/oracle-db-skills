@@ -4,7 +4,7 @@
 
 Select AI Agent is Oracle's autonomous agent framework inside Oracle AI Database and Autonomous AI Database. Oracle documents it as combining planning, tool use, reflection, and memory to support multi-turn workflows.
 
-Use this file when you need agent teams, tasks, tools, built-in tools, or `DBMS_CLOUD_AI_AGENT`.
+Use this file when you need agent teams, tasks, tools, built-in tools, or `DBMS_CLOUD_AI_AGENT`. If the question is specifically about `select_ai.agent.*` classes in Python, start with `select-ai-python.md` and use this file for the database-side agent model.
 
 ---
 

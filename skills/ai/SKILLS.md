@@ -14,6 +14,7 @@ Complete index for AI-related skills in `skills/ai/`. Start with the overview gu
 | If you need to... | Read |
 |-------------------|------|
 | understand what Select AI covers before choosing an implementation path | `select-ai.md` |
+| use Select AI from Python or choose between `select_ai`, SQL, and PL/SQL paths | `select-ai-python.md` |
 | improve overall Select AI NL2SQL accuracy | `select-ai-accuracy.md` |
 | configure providers, credentials, models, or session activation | `select-ai-profiles.md` |
 | choose between `showsql`, `runsql`, `showprompt`, `chat`, or `agent` | `select-ai-actions.md` |
@@ -39,6 +40,7 @@ Complete index for AI-related skills in `skills/ai/`. Start with the overview gu
 | File | Description |
 |------|-------------|
 | `select-ai.md` | Select AI overview, capability boundaries, and routing guide |
+| `select-ai-python.md` | routing between `select_ai`, `SELECT AI`, and package-based Select AI use from Python |
 | `select-ai-accuracy.md` | cross-cutting Select AI accuracy workflow: scope, metadata, inspection, case sensitivity, and feedback |
 | `select-ai-annotations.md` | annotation DDL, profile integration, annotation views, and Select AI metadata usage |
 | `select-ai-profiles.md` | AI profile lifecycle, attributes, provider configuration, session activation |

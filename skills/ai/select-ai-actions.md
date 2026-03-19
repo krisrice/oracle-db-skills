@@ -4,7 +4,7 @@
 
 Select AI exposes prompt actions through the `AI` keyword and through `DBMS_CLOUD_AI.GENERATE`. These actions cover NL2SQL, prompt inspection, chat, summarization, translation, feedback, and agent execution.
 
-Use this file when you need to choose the right Select AI action and understand the exact syntax Oracle documents for prompt execution.
+Use this file when you need to choose the right Select AI action and understand the exact syntax Oracle documents for prompt execution. If you need the Python object methods such as `Profile.run_sql()` or `AsyncProfile.show_sql()`, start with `select-ai-python.md` and use this file for the underlying action semantics.
 
 ---
 

@@ -1,11 +1,11 @@
 ---
 name: oracle-db-skills
-description: 147 Oracle Database and OCR container reference guides covering SQL, PL/SQL, AI Database topics, performance tuning, security, ORDS, SQLcl, container images, migrations, and more. Load individual skill files on demand for expert guidance on any Oracle topic.
+description: 148 Oracle Database and OCR container reference guides covering SQL, PL/SQL, AI Database topics, performance tuning, security, ORDS, SQLcl, container images, migrations, and more. Load individual skill files on demand for expert guidance on any Oracle topic.
 ---
 
 # Oracle DB Skills
 
-A collection of 147 standalone reference guides for Oracle Database and OCR database-category container images. Each file covers one topic with explanations, practical examples, best practices, and common mistakes.
+A collection of 148 standalone reference guides for Oracle Database and OCR database-category container images. Each file covers one topic with explanations, practical examples, best practices, and common mistakes.
 
 ## How to Use
 
@@ -18,7 +18,7 @@ A collection of 147 standalone reference guides for Oracle Database and OCR data
 | User asks about… | Read from |
 |------------------|-----------|
 | Backup, recovery, RMAN, redo/undo logs, users | `skills/admin/` |
-| Select AI, AI Agent, AI Vector Search, vector indexes, semantic search, RAG on Oracle AI Database | `skills/ai/SKILLS.md` |
+| Select AI, Select AI for Python, AI Agent, AI Vector Search, vector indexes, semantic search, RAG on Oracle AI Database | `skills/ai/SKILLS.md` |
 | JDBC, connection pooling, JSON, XML, spatial, full-text, transactions, property graphs | `skills/appdev/` |
 | RAC, CDB/PDB, Exadata, In-Memory, OCI, ATP/ADW, Data Guard | `skills/architecture/` |
 | ERD, data modeling, partitioning, tablespaces | `skills/design/` |
@@ -61,6 +61,7 @@ skills/
 - **`skills/ai/SKILLS.md`** — task router for the AI category
 - **`skills/ai/ai-vector-search.md`** — entry point for Oracle AI Vector Search concepts and routing
 - **`skills/ai/select-ai.md`** — entry point for Select AI concepts and routing
+- **`skills/ai/select-ai-python.md`** — routing between `select_ai`, SQL, and PL/SQL Select AI use from Python
 - **`skills/sqlcl/sqlcl-mcp-server.md`** — connecting AI assistants to Oracle via the SQLcl MCP server
 - **`skills/migrations/migration-assessment.md`** — start here for any database migration project
 - **`skills/performance/explain-plan.md`** — foundation for all SQL performance work

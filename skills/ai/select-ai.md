@@ -65,6 +65,7 @@ Use `DBMS_CLOUD_AI.GENERATE` when `SELECT AI` is not supported in the client sur
 
 | Task | Read next |
 |------|-----------|
+| use Select AI from Python or choose between `select_ai`, `SELECT AI`, and `DBMS_CLOUD_AI` from Python | `select-ai-python.md` |
 | improve overall Select AI NL2SQL accuracy | `select-ai-accuracy.md` |
 | design and audit Select AI annotations | `select-ai-annotations.md` |
 | configure providers, credentials, models, or session activation | `select-ai-profiles.md` |

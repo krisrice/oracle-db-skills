@@ -1,6 +1,6 @@
 # Oracle DB Skills
 
-Oracle DB Skills is a curated library of 147 practical, documentation-backed guides for working with Oracle Database and Oracle Container Registry database-category images, organized by domain: SQL and PL/SQL development, AI Database topics, performance tuning, security, administration, monitoring, architecture, DevOps, migrations, SQLcl, ORDS, Oracle-specific features, and container-image repositories. The guides include actionable examples, best practices, common pitfalls, sources, and Oracle version compatibility notes where relevant.
+Oracle DB Skills is a curated library of 148 practical, documentation-backed guides for working with Oracle Database and Oracle Container Registry database-category images, organized by domain: SQL and PL/SQL development, AI Database topics, performance tuning, security, administration, monitoring, architecture, DevOps, migrations, SQLcl, ORDS, Oracle-specific features, and container-image repositories. The guides include actionable examples, best practices, common pitfalls, sources, and Oracle version compatibility notes where relevant.
 
 ## Version Coverage Standard
 
@@ -25,7 +25,7 @@ Oracle DB Skills is a curated library of 147 practical, documentation-backed gui
 | [SQL Development](#sql-development) | 6 | `skills/sql-dev/` |
 | [Performance & Tuning](#performance--tuning) | 7 | `skills/performance/` |
 | [Application Development](#application-development) | 14 | `skills/appdev/` |
-| [AI Database](#ai-database) | 19 | `skills/ai/` |
+| [AI Database](#ai-database) | 20 | `skills/ai/` |
 | [Security](#security) | 6 | `skills/security/` |
 | [Administration](#administration) | 5 | `skills/admin/` |
 | [Monitoring & Diagnostics](#monitoring--diagnostics) | 5 | `skills/monitoring/` |
@@ -130,6 +130,7 @@ Complete AI task index: `skills/ai/SKILLS.md`
 | `select-ai-profiles.md` | AI profile lifecycle, attributes, provider configuration, session activation |
 | `select-ai-prompts.md` | prompt wording rules, `showprompt`, prompt augmentation, and action guidance |
 | `select-ai-actions.md` | `SELECT AI` / `DBMS_CLOUD_AI.GENERATE` actions, `showprompt`, `chat`, `translate`, `summarize` |
+| `select-ai-python.md` | routing between `select_ai`, `SELECT AI`, and package-based Select AI use from Python |
 | `select-ai-metadata.md` | `object_list`, metadata controls, comments, annotations, constraints, data access |
 | `select-ai-feedback.md` | `feedback` action, `DBMS_CLOUD_AI.FEEDBACK`, feedback vector index, SQL refinement workflow |
 | `select-ai-rag.md` | Select AI RAG flow, vector-index integration, `embedding_model`, `enable_sources` |

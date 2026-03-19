@@ -4,7 +4,7 @@
 
 Select AI is configured through AI profiles. A profile binds together the AI provider, credentials, model selection, conversation settings, NL2SQL metadata scope, and optional RAG vector-index settings.
 
-Use this file when you need to create, activate, inspect, or update Select AI profiles. Use the other Select AI skills for prompt actions, metadata controls, feedback, RAG, synthetic data, or agents.
+Use this file when you need to create, activate, inspect, or update Select AI profiles. Use the other Select AI skills for prompt actions, metadata controls, feedback, RAG, synthetic data, or agents. If you need the Python wrappers `select_ai.Profile` or `ProfileAttributes`, start with `select-ai-python.md` and return here for profile semantics.
 
 ---
 

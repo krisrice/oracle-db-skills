@@ -1,6 +1,6 @@
 # Oracle DB Skills — Agent Instructions
 
-This repository is a collection of 147 standalone reference guides for Oracle Database and Oracle Container Registry database-category images. Each file covers one topic with explanations, practical examples, best practices, and common mistakes.
+This repository is a collection of 148 standalone reference guides for Oracle Database and Oracle Container Registry database-category images. Each file covers one topic with explanations, practical examples, best practices, and common mistakes.
 
 ## How to Use This Collection
 
@@ -35,7 +35,7 @@ skills/
 | User asks about… | Load from |
 |------------------|-----------|
 | Backup, recovery, RMAN, redo/undo logs, users | `skills/admin/` |
-| Select AI, AI Agent, AI Vector Search, vector indexes, semantic search, RAG on Oracle AI Database | `skills/ai/SKILLS.md` |
+| Select AI, Select AI for Python, AI Agent, AI Vector Search, vector indexes, semantic search, RAG on Oracle AI Database | `skills/ai/SKILLS.md` |
 | JDBC, connection pooling, JSON, XML, spatial, full-text, transactions, property graphs | `skills/appdev/` |
 | RAC, CDB/PDB, Exadata, In-Memory, OCI, ATP/ADW, Data Guard | `skills/architecture/` |
 | ERD, data modeling, partitioning, tablespaces | `skills/design/` |
@@ -56,6 +56,7 @@ skills/
 - **`skills/ai/SKILLS.md`** — task router for the AI category
 - **`skills/ai/ai-vector-search.md`** — entry point for Oracle AI Vector Search concepts and routing
 - **`skills/ai/select-ai.md`** — entry point for Select AI concepts and routing
+- **`skills/ai/select-ai-python.md`** — routing between `select_ai`, SQL, and PL/SQL Select AI use from Python
 - **`skills/sqlcl/sqlcl-mcp-server.md`** — how to connect AI assistants (including Claude) to Oracle via the SQLcl MCP server
 - **`skills/migrations/migration-assessment.md`** — start here for any database migration project
 - **`skills/performance/explain-plan.md`** — foundation for all SQL performance work
