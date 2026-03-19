@@ -49,7 +49,20 @@ A tracking file for skills.md topics to create for working with Oracle DB.
 
 ## AI Database
 - [x] `ai-vector-search.md` — `VECTOR` data type, similarity search, distance metrics, vector indexes, hybrid search
+- [x] `hybrid-vector-search.md` — `CREATE HYBRID VECTOR INDEX`, `DBMS_HYBRID_VECTOR`, hybrid query patterns
 - [x] `select-ai.md` — AI profiles, `DBMS_CLOUD_AI`, `SELECT AI` actions, prompt augmentation, metadata controls
+- [x] `select-ai-actions.md` — `SELECT AI` / `DBMS_CLOUD_AI.GENERATE` actions, `showprompt`, `chat`, `translate`, `summarize`
+- [x] `select-ai-agent.md` — `DBMS_CLOUD_AI_AGENT`, teams, agents, tasks, tools, built-in tool support
+- [x] `select-ai-feedback.md` — `feedback` action, `DBMS_CLOUD_AI.FEEDBACK`, feedback vector index, SQL refinement workflow
+- [x] `select-ai-metadata.md` — `object_list`, metadata controls, comments, annotations, constraints, data access
+- [x] `select-ai-profiles.md` — AI profile lifecycle, attributes, provider configuration, session activation
+- [x] `select-ai-rag.md` — Select AI RAG flow, vector-index integration, `embedding_model`, `enable_sources`
+- [x] `select-ai-synthetic-data.md` — `GENERATE_SYNTHETIC_DATA`, params, monitoring status tables, metadata-clone workflows
+- [x] `vector-data-type.md` — `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors
+- [x] `vector-diagnostics.md` — vector views, memory pool, initialization parameters, package landscape
+- [x] `vector-embeddings.md` — ONNX models, third-party embeddings, chunking, `DBMS_VECTOR_CHAIN` pipelines
+- [x] `vector-indexes.md` — IVF/HNSW, `CREATE VECTOR INDEX`, advisor procedures, restrictions
+- [x] `vector-operations.md` — distance metrics, operators, exact/approximate search, vector SQL functions
 
 ## Security
 - [x] `privilege-management.md` — Least privilege, roles, system vs object privileges

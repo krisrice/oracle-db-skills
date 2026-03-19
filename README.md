@@ -1,6 +1,6 @@
 # Oracle DB Skills
 
-Oracle DB Skills is a curated library of 130 practical, documentation-backed guides for working with Oracle Database and Oracle Container Registry database-category images, organized by domain: SQL and PL/SQL development, AI Database topics, performance tuning, security, administration, monitoring, architecture, DevOps, migrations, SQLcl, ORDS, Oracle-specific features, and container-image repositories. The guides include actionable examples, best practices, common pitfalls, sources, and Oracle version compatibility notes where relevant.
+Oracle DB Skills is a curated library of 143 practical, documentation-backed guides for working with Oracle Database and Oracle Container Registry database-category images, organized by domain: SQL and PL/SQL development, AI Database topics, performance tuning, security, administration, monitoring, architecture, DevOps, migrations, SQLcl, ORDS, Oracle-specific features, and container-image repositories. The guides include actionable examples, best practices, common pitfalls, sources, and Oracle version compatibility notes where relevant.
 
 ## Version Coverage Standard
 
@@ -25,7 +25,7 @@ Oracle DB Skills is a curated library of 130 practical, documentation-backed gui
 | [SQL Development](#sql-development) | 6 | `skills/sql-dev/` |
 | [Performance & Tuning](#performance--tuning) | 7 | `skills/performance/` |
 | [Application Development](#application-development) | 14 | `skills/appdev/` |
-| [AI Database](#ai-database) | 2 | `skills/ai/` |
+| [AI Database](#ai-database) | 15 | `skills/ai/` |
 | [Security](#security) | 6 | `skills/security/` |
 | [Administration](#administration) | 5 | `skills/admin/` |
 | [Monitoring & Diagnostics](#monitoring--diagnostics) | 5 | `skills/monitoring/` |
@@ -113,8 +113,21 @@ Oracle DB Skills is a curated library of 130 practical, documentation-backed gui
 
 | File | Description |
 |------|-------------|
-| `ai-vector-search.md` | `VECTOR` data type, similarity search, distance metrics, vector indexes, hybrid search |
-| `select-ai.md` | AI profiles, `DBMS_CLOUD_AI`, `SELECT AI` actions, prompt augmentation, metadata controls |
+| `ai-vector-search.md` | Oracle AI Vector Search overview and routing guide |
+| `hybrid-vector-search.md` | `CREATE HYBRID VECTOR INDEX`, `DBMS_HYBRID_VECTOR`, hybrid query patterns |
+| `select-ai.md` | Select AI overview and routing guide |
+| `select-ai-actions.md` | `SELECT AI` / `DBMS_CLOUD_AI.GENERATE` actions, `showprompt`, `chat`, `translate`, `summarize` |
+| `select-ai-agent.md` | `DBMS_CLOUD_AI_AGENT`, teams, agents, tasks, tools, built-in tool support |
+| `select-ai-feedback.md` | `feedback` action, `DBMS_CLOUD_AI.FEEDBACK`, feedback vector index, SQL refinement workflow |
+| `select-ai-metadata.md` | `object_list`, metadata controls, comments, annotations, constraints, data access |
+| `select-ai-profiles.md` | AI profile lifecycle, attributes, provider configuration, session activation |
+| `select-ai-rag.md` | Select AI RAG flow, vector-index integration, `embedding_model`, `enable_sources` |
+| `select-ai-synthetic-data.md` | `GENERATE_SYNTHETIC_DATA`, params, monitoring status tables, metadata-clone workflows |
+| `vector-data-type.md` | `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors |
+| `vector-diagnostics.md` | vector views, memory pool, initialization parameters, package landscape |
+| `vector-embeddings.md` | ONNX models, third-party embeddings, chunking, `DBMS_VECTOR_CHAIN` pipelines |
+| `vector-indexes.md` | IVF/HNSW, `CREATE VECTOR INDEX`, advisor procedures, restrictions |
+| `vector-operations.md` | distance metrics, operators, exact/approximate search, vector SQL functions |
 
 ---
 

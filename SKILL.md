@@ -1,11 +1,11 @@
 ---
 name: oracle-db-skills
-description: 130 Oracle Database and OCR container reference guides covering SQL, PL/SQL, AI Database topics, performance tuning, security, ORDS, SQLcl, container images, migrations, and more. Load individual skill files on demand for expert guidance on any Oracle topic.
+description: 143 Oracle Database and OCR container reference guides covering SQL, PL/SQL, AI Database topics, performance tuning, security, ORDS, SQLcl, container images, migrations, and more. Load individual skill files on demand for expert guidance on any Oracle topic.
 ---
 
 # Oracle DB Skills
 
-A collection of 130 standalone reference guides for Oracle Database and OCR database-category container images. Each file covers one topic with explanations, practical examples, best practices, and common mistakes.
+A collection of 143 standalone reference guides for Oracle Database and OCR database-category container images. Each file covers one topic with explanations, practical examples, best practices, and common mistakes.
 
 ## How to Use
 
@@ -18,7 +18,7 @@ A collection of 130 standalone reference guides for Oracle Database and OCR data
 | User asks about… | Read from |
 |------------------|-----------|
 | Backup, recovery, RMAN, redo/undo logs, users | `skills/admin/` |
-| Select AI, AI Vector Search, vector indexes, semantic search, RAG on Oracle AI Database | `skills/ai/` |
+| Select AI, AI Agent, AI Vector Search, vector indexes, semantic search, RAG on Oracle AI Database | `skills/ai/` |
 | JDBC, connection pooling, JSON, XML, spatial, full-text, transactions, property graphs | `skills/appdev/` |
 | RAC, CDB/PDB, Exadata, In-Memory, OCI, ATP/ADW, Data Guard | `skills/architecture/` |
 | ERD, data modeling, partitioning, tablespaces | `skills/design/` |
@@ -39,7 +39,7 @@ A collection of 130 standalone reference guides for Oracle Database and OCR data
 ```
 skills/
 ├── admin/          Database administration (backup, recovery, users, redo/undo)
-├── ai/             AI Database topics (Select AI, AI Vector Search, RAG guidance)
+├── ai/             AI Database topics (Select AI, AI Agent, AI Vector Search, RAG guidance)
 ├── appdev/         Application development (JSON, XML, spatial, text, pooling)
 ├── architecture/   Infrastructure (RAC, Multitenant, Exadata, In-Memory, OCI)
 ├── containers/     OCR Database-category container repositories
@@ -59,6 +59,7 @@ skills/
 ## Key Starting Points
 
 - **`skills/ai/ai-vector-search.md`** — foundation for Oracle AI Vector Search concepts and indexing choices
+- **`skills/ai/select-ai.md`** — foundation for Select AI profiles, actions, prompt augmentation, and routing to deep-dive AI skills
 - **`skills/sqlcl/sqlcl-mcp-server.md`** — connecting AI assistants to Oracle via the SQLcl MCP server
 - **`skills/migrations/migration-assessment.md`** — start here for any database migration project
 - **`skills/performance/explain-plan.md`** — foundation for all SQL performance work
