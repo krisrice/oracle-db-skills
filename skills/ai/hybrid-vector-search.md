@@ -57,6 +57,74 @@ Use the `vector` section for semantic intent and the `text` section for explicit
 
 ---
 
+## Filters and Predicate Control
+
+Oracle documents several distinct filtering and constraint paths in `DBMS_HYBRID_VECTOR.SEARCH`.
+
+### Keyword Filters
+
+Use the `text` section for Oracle Text-style lexical constraints:
+
+- `text.contains`
+- `text.search_text`
+- `text.json_textcontains`
+
+Use `text.contains` when you need explicit Oracle Text query syntax. Use `text.search_text` when you want Oracle to derive the text query from plain search text.
+
+### Structured Filters
+
+Oracle also documents a top-level `filter_by` JSON expression for structured predicates on returned rows.
+
+Documented examples include relational-style comparisons such as:
+
+- equals
+- greater-than / less-than
+- compound expressions
+- JSON `passing` values
+
+Use `filter_by` when the query needs business predicates such as price, status, region, or other non-text attributes in addition to hybrid relevance.
+
+### Path-Based Filtering
+
+Oracle documents `vector.inpath` as a way to restrict search to specific JSON paths that match the vectorizer path lists.
+
+Use this when the hybrid index is built over JSON content and only certain document paths should participate in semantic search.
+
+---
+
+## Filter Hints for Vector Evaluation
+
+Oracle documents `filter_type` inside the `vector` section as a vector-index hint for how filtering should interact with vector index evaluation.
+
+The documented values are:
+
+- `PRE_W`
+- `PRE_WO`
+- `IN_W`
+- `IN_WO`
+- `POST_WO`
+
+Oracle documents these as index-hint choices tied to HNSW or IVF behavior, not as generic business predicates.
+
+Use `filter_type` only when you are tuning the vector-evaluation plan. Use `filter_by` or ordinary SQL predicates when you are expressing business conditions.
+
+Documented example:
+
+```sql
+SELECT DBMS_HYBRID_VECTOR.SEARCH(
+json('{ "hybrid_index_name" : "my_hybrid_idx",
+        "vector":
+                { "search_text" : "leadership experience",
+                  "search_mode" : "DOCUMENT",
+                  "filter_type" : "IN_WO" },
+        "return":
+                { "topN"        : 10 }
+      }'))
+FROM dual;
+```
+
+---
+
 ## Additional Helpers
 
 Oracle documents these `DBMS_HYBRID_VECTOR` package members:
@@ -86,6 +154,8 @@ Treat hybrid indexing as a combined search design, not as a thin wrapper over an
 ## Best Practices
 
 - Use a hybrid vector index when documents need both meaning-based retrieval and exact text focus.
+- Use `text.contains` for lexical constraints, `filter_by` for structured business predicates, and `filter_type` only for vector-plan tuning.
+- Use `vector.inpath` when JSON path scope matters more than whole-document recall.
 - Review both Oracle Text and vector-index restrictions before creating the index.
 - Use `GET_SQL` or `GET_HYBRID_SQL` when you need to inspect generated search SQL.
 - Keep model selection, text search design, and vector index type aligned in one review.
@@ -102,7 +172,11 @@ Oracle documents `CREATE HYBRID VECTOR INDEX` and `DBMS_HYBRID_VECTOR` as first-
 
 A hybrid vector index includes an Oracle Text component, so text-index design constraints still matter.
 
-### Mistake 3: Assuming Hybrid Index Creation Can Ignore Vector Memory
+### Mistake 3: Treating `filter_type` as a Business Filter
+
+Oracle documents `filter_type` as a vector index hint. It is not the same as `filter_by`, ordinary SQL predicates, or Oracle Text query conditions.
+
+### Mistake 4: Assuming Hybrid Index Creation Can Ignore Vector Memory
 
 Oracle documents vector-memory and vector-index guidelines as still relevant for hybrid index creation.
 
