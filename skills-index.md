@@ -59,7 +59,7 @@ A tracking file for skills.md topics to create for working with Oracle DB.
 - [x] `select-ai-rag.md` — Select AI RAG flow, vector-index integration, `embedding_model`, `enable_sources`
 - [x] `select-ai-synthetic-data.md` — `GENERATE_SYNTHETIC_DATA`, params, monitoring status tables, metadata-clone workflows
 - [x] `vector-data-type.md` — `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors
-- [x] `vector-diagnostics.md` — vector views, memory pool, initialization parameters, package landscape
+- [x] `vector-diagnostics.md` — vector views, memory pool, initialization parameters, diagnostic routing
 - [x] `vector-embeddings.md` — ONNX models, third-party embeddings, chunking, `DBMS_VECTOR_CHAIN` pipelines
 - [x] `vector-packages.md` — `DBMS_VECTOR`, `DBMS_VECTOR_CHAIN`, `DBMS_HYBRID_VECTOR`, reranking, generated text, package selection
 - [x] `vector-indexes.md` — IVF/HNSW, `CREATE VECTOR INDEX`, advisor procedures, restrictions

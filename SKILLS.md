@@ -50,7 +50,7 @@
 | `skills/ai/select-ai-rag.md` | ai | Select AI RAG flow, vector-index integration, `embedding_model`, `enable_sources` |
 | `skills/ai/select-ai-synthetic-data.md` | ai | `GENERATE_SYNTHETIC_DATA`, params, monitoring status tables, metadata-clone workflows |
 | `skills/ai/vector-data-type.md` | ai | `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors |
-| `skills/ai/vector-diagnostics.md` | ai | vector views, memory pool, initialization parameters, package landscape |
+| `skills/ai/vector-diagnostics.md` | ai | vector views, memory pool, initialization parameters, diagnostic routing |
 | `skills/ai/vector-embeddings.md` | ai | ONNX models, third-party embeddings, chunking, `DBMS_VECTOR_CHAIN` pipelines |
 | `skills/ai/vector-packages.md` | ai | `DBMS_VECTOR`, `DBMS_VECTOR_CHAIN`, `DBMS_HYBRID_VECTOR`, reranking, generated text, package selection |
 | `skills/ai/vector-indexes.md` | ai | IVF/HNSW, `CREATE VECTOR INDEX`, advisor procedures, restrictions |
