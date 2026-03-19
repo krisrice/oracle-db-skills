@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Repository Is
 
-A library of 128 standalone Oracle Database and OCR container reference guides (skill files) organized by category under `skills/`. Each file covers one topic with explanations, examples, and version-specific notes. There is no build system, test suite, or compilation step — this is a pure Markdown content library.
+A library of 149 standalone Oracle Database and OCR container reference guides (skill files) organized by category under `skills/`. Each file covers one topic with explanations, examples, and version-specific notes. There is no build system, test suite, or compilation step — this is a pure Markdown content library.
 
 ## Adding or Modifying Skill Files
 
@@ -35,14 +35,17 @@ These files must stay in sync when skills are added or renamed:
 | [AGENTS.md](AGENTS.md) | Category routing table for AI agents |
 | [SKILL.md](SKILL.md) | Root metadata for skills.sh CLI discovery |
 | [skills-index.md](skills-index.md) | Completion tracking checklist |
+| [skills/ai/SKILLS.md](skills/ai/SKILLS.md) | AI sub-index and task router (not counted as a standalone skill) |
+| [skills/containers/SKILLS.md](skills/containers/SKILLS.md) | Container sub-index and task router (not counted as a standalone skill) |
 
-When adding a new skill file, update all four of these files.
+When adding a new skill file, update the root discovery files above. If the skill is in a category with a local sub-index, update that sub-index too.
 
 ## Category Routing
 
 | Topic | Directory |
 |-------|-----------|
 | Backup, recovery, RMAN, redo/undo, users | `skills/admin/` |
+| Select AI, Select AI for Python, AI Agent, AI Vector Search, vector indexes, semantic search, RAG on Oracle AI Database | `skills/ai/SKILLS.md` |
 | JDBC, connection pooling, JSON, XML, spatial, full-text, transactions, property graphs | `skills/appdev/` |
 | RAC, CDB/PDB, Exadata, In-Memory, OCI, ATP/ADW, Data Guard | `skills/architecture/` |
 | ERD, data modeling, partitioning, tablespaces | `skills/design/` |
@@ -56,10 +59,14 @@ When adding a new skill file, update all four of these files.
 | Privileges, VPD, TDE, encryption, auditing, network security | `skills/security/` |
 | SQL patterns, window functions, CTEs, dynamic SQL, injection | `skills/sql-dev/` |
 | SQLcl commands, scripting, Liquibase CLI, MCP server, CI/CD | `skills/sqlcl/` |
-| Oracle Container Registry images, container pull commands, tags, and OCR repository selection | `skills/containers/` |
+| Oracle Container Registry images, container pull commands, tags, and OCR repository selection | `skills/containers/SKILLS.md` |
 
 ## Key Starting Points
 
+- [skills/ai/SKILLS.md](skills/ai/SKILLS.md) — task router for the AI category
+- [skills/ai/ai-vector-search.md](skills/ai/ai-vector-search.md) — entry point for Oracle AI Vector Search concepts and routing
+- [skills/ai/select-ai.md](skills/ai/select-ai.md) — entry point for Select AI concepts and routing
+- [skills/ai/select-ai-python.md](skills/ai/select-ai-python.md) — routing between `select_ai`, SQL, and PL/SQL Select AI use from Python
 - [skills/sqlcl/sqlcl-mcp-server.md](skills/sqlcl/sqlcl-mcp-server.md) — connecting AI assistants to Oracle via the SQLcl MCP server
 - [skills/migrations/migration-assessment.md](skills/migrations/migration-assessment.md) — start here for any migration project
 - [skills/performance/explain-plan.md](skills/performance/explain-plan.md) — foundation for SQL performance work

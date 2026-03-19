@@ -7,6 +7,8 @@
 - **Thin mode** (default): pure Python, no Oracle Client libraries required. Supports most features.
 - **Thick mode**: requires Oracle Client (Instant Client or full client). Required for advanced features like Advanced Queuing, Sharding, and some proxy authentication scenarios.
 
+For Select AI-specific Python workflows, including the `select_ai` client library and routing between Python, SQL, and PL/SQL Select AI entry points, read `skills/ai/select-ai-python.md`.
+
 ```bash
 pip install oracledb
 ```
