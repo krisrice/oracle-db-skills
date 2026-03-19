@@ -18,6 +18,7 @@ Complete index for AI-related skills in `skills/ai/`. Start with the overview gu
 | manage Select AI conversations, vector indexes, or async object workflows from Python | `select-ai-python.md` |
 | improve overall Select AI NL2SQL accuracy | `select-ai-accuracy.md` |
 | configure providers, credentials, models, or session activation | `select-ai-profiles.md` |
+| secure Select AI with privileges, metadata scoping, data-access controls, private endpoints, or AI proxy patterns | `select-ai-security.md` |
 | choose between `showsql`, `runsql`, `showprompt`, `chat`, or `agent` | `select-ai-actions.md` |
 | design and audit Select AI annotations for NL2SQL | `select-ai-annotations.md` |
 | shape prompts, inspect prompt augmentation, or guide prompt wording | `select-ai-prompts.md` |
@@ -46,6 +47,7 @@ Complete index for AI-related skills in `skills/ai/`. Start with the overview gu
 | `select-ai-accuracy.md` | cross-cutting Select AI accuracy workflow: scope, metadata, inspection, case sensitivity, and feedback |
 | `select-ai-annotations.md` | annotation DDL, profile integration, annotation views, and Select AI metadata usage |
 | `select-ai-profiles.md` | AI profile lifecycle, attributes, provider configuration, session activation |
+| `select-ai-security.md` | privilege model, metadata/data exposure controls, private endpoints, and AI proxy security |
 | `select-ai-prompts.md` | prompt wording rules, `showprompt`, prompt augmentation, and action guidance |
 | `select-ai-actions.md` | `SELECT AI` / `DBMS_CLOUD_AI.GENERATE` actions, `showprompt`, `chat`, `translate`, `summarize` |
 | `select-ai-metadata.md` | `object_list`, metadata controls, comments, annotations, constraints, data access |

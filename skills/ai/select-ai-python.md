@@ -33,6 +33,7 @@ For generic driver topics such as connection pooling, binds, LOBs, and low-level
 |---|---|---|
 | use a Python object model for profiles, conversations, vector indexes, or async workflows | `select_ai` | this file, then `select-ai-profiles.md` |
 | manage prompt history or conversation context from Python | `select_ai` conversations | this file, then `select-ai-prompts.md` |
+| configure privileges, HTTP access, or security boundaries from a Python caller | Python helper APIs plus database-side Select AI controls | this file, then `select-ai-security.md` and `skills/appdev/python-oracledb.md` |
 | issue one-off Select AI prompts from Python code that already executes SQL | `SELECT AI ...` through your existing driver path | `select-ai-actions.md` and `skills/appdev/python-oracledb.md` |
 | invoke package-level Select AI or agent APIs from Python | `DBMS_CLOUD_AI` / `DBMS_CLOUD_AI_AGENT` through your existing driver path | `select-ai-actions.md`, `select-ai-profiles.md`, `select-ai-agent.md`, and `skills/appdev/python-oracledb.md` |
 | create or manage vector indexes for Python-driven RAG | `select_ai` vector-index objects | this file, then `select-ai-rag.md` |
@@ -263,7 +264,7 @@ Python helper APIs include:
 
 Oracle also documents updated privilege coverage for `DBMS_CLOUD`, `DBMS_CLOUD_AI`, `DBMS_CLOUD_AI_AGENT`, and `DBMS_CLOUD_PIPELINE`.
 
-Do not treat Python client setup as replacing the underlying database privilege model.
+Do not treat Python client setup as replacing the underlying database privilege model. Use `select-ai-security.md` for the database-side meaning of metadata scope, data-access switches, private endpoints, and AI proxy controls.
 
 ---
 

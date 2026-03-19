@@ -61,6 +61,7 @@ A tracking file for skills.md topics to create for working with Oracle DB.
 - [x] `select-ai-profiles.md` — AI profile lifecycle, attributes, provider configuration, session activation
 - [x] `select-ai-python.md` — routing between `select_ai`, `SELECT AI`, and package-based Select AI use from Python
 - [x] `select-ai-rag.md` — Select AI RAG flow, vector-index integration, `embedding_model`, `enable_sources`
+- [x] `select-ai-security.md` — privilege model, metadata/data exposure controls, private endpoints, and AI proxy security
 - [x] `select-ai-synthetic-data.md` — `GENERATE_SYNTHETIC_DATA`, params, monitoring status tables, metadata-clone workflows
 - [x] `vector-data-type.md` — `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors
 - [x] `vector-diagnostics.md` — vector views, memory pool, initialization parameters, diagnostic routing

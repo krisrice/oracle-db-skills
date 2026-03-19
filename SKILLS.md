@@ -1,6 +1,6 @@
 # Oracle DB Skills
 
-148 Oracle Database and OCR container reference guides for AI agents. Each file is a standalone skill covering one topic with examples, best practices, and common mistakes.
+149 Oracle Database and OCR container reference guides for AI agents. Each file is a standalone skill covering one topic with examples, best practices, and common mistakes.
 
 **Install:** `npx skills add krisrice/oracle-db-skills`
 
@@ -52,6 +52,7 @@
 | `skills/ai/select-ai-profiles.md` | ai | AI profile lifecycle, attributes, provider configuration, session activation |
 | `skills/ai/select-ai-python.md` | ai | routing between `select_ai`, `SELECT AI`, and package-based Select AI use from Python |
 | `skills/ai/select-ai-rag.md` | ai | Select AI RAG flow, vector-index integration, `embedding_model`, `enable_sources` |
+| `skills/ai/select-ai-security.md` | ai | privilege model, metadata/data exposure controls, private endpoints, and AI proxy security |
 | `skills/ai/select-ai-synthetic-data.md` | ai | `GENERATE_SYNTHETIC_DATA`, params, monitoring status tables, metadata-clone workflows |
 | `skills/ai/vector-data-type.md` | ai | `VECTOR` type definitions, dense/sparse formats, restrictions, vector descriptors |
 | `skills/ai/vector-diagnostics.md` | ai | vector views, memory pool, initialization parameters, diagnostic routing |

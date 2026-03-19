@@ -1,11 +1,11 @@
 ---
 name: oracle-db-skills
-description: 148 Oracle Database and OCR container reference guides covering SQL, PL/SQL, AI Database topics, performance tuning, security, ORDS, SQLcl, container images, migrations, and more. Load individual skill files on demand for expert guidance on any Oracle topic.
+description: 149 Oracle Database and OCR container reference guides covering SQL, PL/SQL, AI Database topics, performance tuning, security, ORDS, SQLcl, container images, migrations, and more. Load individual skill files on demand for expert guidance on any Oracle topic.
 ---
 
 # Oracle DB Skills
 
-A collection of 148 standalone reference guides for Oracle Database and OCR database-category container images. Each file covers one topic with explanations, practical examples, best practices, and common mistakes.
+A collection of 149 standalone reference guides for Oracle Database and OCR database-category container images. Each file covers one topic with explanations, practical examples, best practices, and common mistakes.
 
 ## How to Use
 

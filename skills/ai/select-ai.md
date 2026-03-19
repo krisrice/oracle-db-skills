@@ -69,6 +69,7 @@ Use `DBMS_CLOUD_AI.GENERATE` when `SELECT AI` is not supported in the client sur
 | improve overall Select AI NL2SQL accuracy | `select-ai-accuracy.md` |
 | design and audit Select AI annotations | `select-ai-annotations.md` |
 | configure providers, credentials, models, or session activation | `select-ai-profiles.md` |
+| secure Select AI with privileges, metadata scoping, data-access controls, private endpoints, or AI proxy patterns | `select-ai-security.md` |
 | shape prompts, inspect prompt augmentation, or decide between `showsql`, `explainsql`, and `showprompt` | `select-ai-prompts.md` |
 | choose between `showsql`, `runsql`, `showprompt`, `chat`, `translate`, `summarize`, or `agent` | `select-ai-actions.md` |
 | improve SQL generation with `object_list`, comments, annotations, or constraints | `select-ai-metadata.md` |
