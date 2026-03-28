@@ -515,6 +515,6 @@ Aggregation:            GET    /v1/departments/:id/headcount
 
 ## Sources
 
-- [ORDS Developer's Guide — Creating and Editing REST APIs](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.2/orddg/developing-oracle-rest-data-services-applications.html)
-- [Oracle REST Data Services PL/SQL API Reference — ORDS.DEFINE_MODULE](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.2/orrst/index.html)
-- [ORDS Implicit Parameters Reference](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.2/orddg/implicit-parameters.html)
+- [Developing REST Applications — Manually Creating RESTful Services Using SQL and PL/SQL](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.4/orddg/developing-REST-applications.html#GUID-C9D763FD-9B74-4A27-9B80-6E500756E464)
+- [ORDS PL/SQL Package Reference — ORDS.DEFINE_MODULE](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.4/orddg/ORDS-reference.html#GUID-7FC25CDA-E359-4406-9555-04C68FB55EE4)
+- [ORDS Implicit Parameters Reference](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.4/orddg/implicit-parameters.html)

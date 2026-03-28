@@ -536,6 +536,6 @@ ORDS.DEFINE_HANDLER(
 
 ## Sources
 
-- [ORDS Developer's Guide — Developing PL/SQL-Based REST Services](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.2/orddg/developing-oracle-rest-data-services-applications.html)
-- [Oracle REST Data Services Handler Source Types Reference](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.2/orrst/index.html)
-- [ORDS Implicit Parameters Reference (status_code, body, forward_location)](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/24.2/orddg/implicit-parameters.html)
+- [Developing REST Applications — Manually Creating RESTful Services Using SQL and PL/SQL](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.4/orddg/developing-REST-applications.html#GUID-C9D763FD-9B74-4A27-9B80-6E500756E464)
+- [ORDS PL/SQL Package Reference](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.4/orddg/ORDS-reference.html)
+- [ORDS Implicit Parameters Reference (status_code, body, forward_location)](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.4/orddg/implicit-parameters.html)
