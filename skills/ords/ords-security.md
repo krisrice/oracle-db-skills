@@ -270,22 +270,20 @@ END;
 
 ### ORDS Wallet-Based Secret Storage (Default Mechanism)
 
-All passwords in ORDS are stored in an **Oracle Wallet** (credential store) in the `credentials/` directory of the ORDS config. Passwords never appear in any configuration file. Use `ords config secret set` to set or rotate any credential:
+Pool secrets such as `db.password` are stored in an **Oracle Wallet** in `databases/{pool_name}/wallet`. If you use `ords config secret --global`, ORDS stores the secret in `global/wallet`. Secrets never appear in configuration files. Use `ords config secret` to set or rotate them:
 
 ```shell
 # Set the DB password — stored in Oracle Wallet only
-ords --config /opt/oracle/ords/config config secret set db.password \
-  --password-stdin <<< "MySecurePassword123!"
+ords --config /opt/oracle/ords/config config secret --password-stdin db.password <<< "MySecurePassword123!"
 
 # Rotate a password — re-run with the new value
-ords --config /opt/oracle/ords/config config secret set db.password \
-  --password-stdin <<< "NewSecurePassword456!"
+ords --config /opt/oracle/ords/config config secret --password-stdin db.password <<< "NewSecurePassword456!"
 
 # Verify the wallet is present (passwords are not readable from config files)
-ls /opt/oracle/ords/config/credentials/
+ls /opt/oracle/ords/config/databases/default/wallet/
 ```
 
-Protect the `credentials/` directory with OS-level permissions (`chmod 700`) and include it in backup procedures alongside the rest of the config directory.
+Protect wallet directories with OS-level permissions (`chmod 700`) and include them in backup procedures alongside the rest of the config directory.
 
 ### OCI Vault Integration
 
@@ -297,8 +295,7 @@ OCI_SECRET=$(oci secrets secret-bundle get \
   --query 'data."secret-bundle-content".content' \
   --raw-output | base64 --decode)
 
-ords --config /opt/oracle/ords/config config secret set db.password \
-  --password-stdin <<< "$OCI_SECRET"
+ords --config /opt/oracle/ords/config config secret --password-stdin db.password <<< "$OCI_SECRET"
 ```
 
 ---
@@ -465,7 +462,7 @@ add_header Permissions-Policy        "geolocation=(), microphone=()" always;
 ## Common Mistakes
 
 - **Wildcard CORS on authenticated endpoints**: `*` CORS policy with OAuth2 Bearer tokens negates the token security — any site can make cross-origin requests. Use explicit origin allowlists.
-- **Attempting to write passwords into config files**: ORDS stores all credentials in an Oracle Wallet (`credentials/` directory) — passwords never belong in any config file. Use `ords config secret set db.password` to set or rotate them. Attempting to embed a password directly in a config file will not work and may break ORDS startup.
+- **Attempting to write passwords into config files**: ORDS stores secrets in wallet directories, not in config files. Use `ords config secret --password-stdin db.password` for pool credentials. Attempting to embed a password directly into a config file will not work and may break ORDS startup.
 - **Not disabling Database Actions in production (if not needed)**: Database Actions (`feature.sdw=true`) provides a powerful SQL execution interface. Disable it on API-only ORDS instances: `feature.sdw=false`.
 - **Using the same OAuth client for all services**: If a shared client is compromised, all services lose access. Use one OAuth client per service/application.
 - **Not testing authentication on every endpoint after a schema change**: Adding a new module does not automatically protect it. Verify each new endpoint requires the expected authentication.

@@ -49,7 +49,7 @@ ords config set db.port 1521
 ords config set db.servicename mypdb.example.com
 ords config set db.username ORDS_PUBLIC_USER
 # Passwords go into the Oracle Wallet, never into a config file:
-ords config secret set db.password --password-stdin <<< "..."
+ords config secret --password-stdin db.password <<< "..."
 ords config set feature.sdw true
 ```
 

@@ -87,13 +87,14 @@ After installation, the config directory looks like:
 /opt/oracle/ords/config/
 ├── databases/
 │   └── default/
-│       └── pool.json         # Connection pool settings (managed by CLI — do not hand-edit)
+│       ├── pool.xml          # Connection pool settings (managed by CLI — do not hand-edit)
+│       └── wallet/           # Pool secrets such as db.password
 ├── global/
-│   └── settings.json         # Global ORDS settings (managed by CLI)
-└── credentials              # Oracle Wallet directory — passwords stored here, never in JSON
+│   ├── settings.xml         # Global ORDS settings (managed by CLI)
+│   └── wallet/              # Present if you store global secrets via --global
 ```
 
-> All configuration files are managed by the `ords config set` CLI. Do not hand-edit JSON files. Passwords are stored in the Oracle Wallet (`credentials/`) and never appear in any config file.
+> All configuration files are managed by the ORDS CLI. Do not hand-edit XML files. Pool secrets such as `db.password` are stored in `databases/{pool_name}/wallet`, and global secrets use `global/wallet`.
 
 ---
 
@@ -179,7 +180,7 @@ echo "SysPassword123!" | ords --config /opt/oracle/ords/config install \
 
 ## Pool Configuration Reference
 
-All pool settings are managed exclusively via the `ords config set` CLI. **Passwords are stored in an Oracle Wallet** in the `credentials/` directory — they never appear in any configuration file. Do not hand-edit the JSON config files ORDS generates.
+All pool settings are managed exclusively via the `ords config set` CLI. **Pool passwords are stored in an Oracle Wallet** in the `databases/{pool_name}/wallet` directory — they never appear in any configuration file. Do not hand-edit the XML config files ORDS generates.
 
 ```shell
 # Set connection parameters
@@ -189,8 +190,7 @@ ords --config /opt/oracle/ords/config config set db.servicename mypdb.example.co
 ords --config /opt/oracle/ords/config config set db.username ORDS_PUBLIC_USER
 
 # Set password — stored in Oracle Wallet, never in a config file
-ords --config /opt/oracle/ords/config config secret set db.password \
-  --password-stdin <<< "MySecurePassword123!"
+ords --config /opt/oracle/ords/config config secret --password-stdin db.password <<< "MySecurePassword123!"
 
 # UCP pool sizing
 ords --config /opt/oracle/ords/config config set jdbc.InitialLimit 5
@@ -253,8 +253,7 @@ ords --config /opt/oracle/ords/config config set db.tnsAliasName myatp_high
 ords --config /opt/oracle/ords/config config set \
   db.wallet.zip.path /opt/oracle/ords/wallet/Wallet_MYATP.zip
 ords --config /opt/oracle/ords/config config set db.username ORDS_PUBLIC_USER
-ords --config /opt/oracle/ords/config config secret set db.password \
-  --password-stdin <<< "MySecurePassword123!"
+ords --config /opt/oracle/ords/config config secret --password-stdin db.password <<< "MySecurePassword123!"
 ```
 
 ---
@@ -398,7 +397,7 @@ The `ords install` command is idempotent — re-running it upgrades the schema i
 
 - **Separate config directory from software directory**: The config dir should persist across software upgrades. Store in `/opt/oracle/ords/config` (not inside the ORDS software directory).
 - **Use ORDS CLI for all config changes**: Avoid manually editing XML files. The CLI handles wallet management, schema validation, and config refresh.
-- **Passwords live in the Oracle Wallet**: ORDS stores all passwords in an Oracle Wallet (`credentials/` in the config directory). Passwords never appear in any config file. Always use `ords config secret set db.password` to set or rotate credentials — never attempt to write a password directly into a config file.
+- **Passwords live in an Oracle Wallet**: Pool passwords such as `db.password` are stored in `databases/{pool_name}/wallet`, while global secrets use `global/wallet`. Passwords never appear in config files. Always use `ords config secret --password-stdin db.password` to set or rotate pool credentials — never attempt to write a password directly into a config file.
 - **Use TNS aliases for ADB**: Wallet-based connections via TNS aliases are more maintainable than custom JDBC URLs.
 - **Test with `ords validate`** before starting after a config change: `ords --config /path/config validate` checks pool connectivity and reports issues.
 - **Set `jdbc.MaxLimit` based on DB max sessions**: Too high a limit can exhaust DB connections. Use `SELECT * FROM v$resource_limit WHERE resource_name = 'sessions'` to check limits.
@@ -474,11 +473,10 @@ The `ords install` command is idempotent — re-running it upgrades the schema i
 - **Always use the Oracle Wallet for credential storage:**
   ```bash
   # CORRECT: Passwords stored in Oracle Wallet only
-  ords --config /opt/oracle/ords/config config secret set db.password \
-    --password-stdin <<< "SecureDatabasePassword123!"
+  ords --config /opt/oracle/ords/config config secret --password-stdin db.password <<< "SecureDatabasePassword123!"
 
   # INCORRECT: Attempting to store passwords in config files (won't work)
-  # DO NOT ATTEMPT TO MANUALLY EDIT pool.json TO ADD PASSWORDS
+  # DO NOT ATTEMPT TO MANUALLY EDIT pool.xml TO ADD PASSWORDS
   ```
 
 - **Use strong, unique passwords for all ORDS-related accounts:**
@@ -527,7 +525,8 @@ The `ords install` command is idempotent — re-running it upgrades the schema i
   - Apply same access controls to backups as live configuration
 
 - **Secure wallet backups:**
-  - The Oracle Wallet in credentials/ contains all passwords
+  - Pool passwords are stored in `databases/{pool_name}/wallet`
+  - Global secrets, if used, are stored in `global/wallet`
   - Back up the wallet securely and separately from other backups
   - Ensure wallet backups are encrypted and access-controlled
 
@@ -650,10 +649,10 @@ The `ords install` command is idempotent — re-running it upgrades the schema i
 - **Validate installation security:**
   ```bash
   # Check that passwords are not in config files
-  grep -r "password" /opt/oracle/ords/config/ --exclude-dir=credentials
+  grep -r "password" /opt/oracle/ords/config/ --exclude-dir=wallet
 
   # Verify wallet directory permissions
-  ls -la /opt/oracle/ords/config/credentials/
+  ls -la /opt/oracle/ords/config/databases/default/wallet/
 
   # Check OS user ORDS is running as
   ps -ef | grep ords
