@@ -69,44 +69,54 @@ CORS (Cross-Origin Resource Sharing) controls which browser origins are allowed 
 
 ### Configure CORS in ORDS
 
-CORS settings are configured via the ORDS CLI:
+CORS configuration differs depending on whether you are exposing ORDS REST modules or PL/SQL Gateway procedures.
+
+### REST Modules
+
+For ORDS REST modules, use `ORDS.SET_MODULE_ORIGINS_ALLOWED` to set the allowed origins for a module. `p_module_name` must be the internal module name defined by `ORDS.DEFINE_MODULE`, not the URL path:
+
+```sql
+BEGIN
+  ORDS.SET_MODULE_ORIGINS_ALLOWED(
+    p_module_name     => 'employees_api',
+    p_origins_allowed => 'https://app.example.com,https://admin.example.com'
+  );
+  COMMIT;
+END;
+/
+```
+
+To remove any existing allowed origins for a module, set `p_origins_allowed` to an empty string:
+
+```sql
+BEGIN
+  ORDS.SET_MODULE_ORIGINS_ALLOWED(
+    p_module_name     => 'employees_api',
+    p_origins_allowed => ''
+  );
+  COMMIT;
+END;
+/
+```
+
+### PL/SQL Gateway
+
+For PL/SQL Gateway external sessions, configure the trusted origins with `security.externalSessionTrustedOrigins`:
 
 ```shell
-# Allow specific origins
-ords --config /opt/oracle/ords/config config set security.requestValidationFunction ords_util.authorize_plsql_gateway
-
-# Set allowed origins (comma-separated, no wildcards for authenticated endpoints)
-ords --config /opt/oracle/ords/config config set security.allowedCORSOrigins \
+ords --config /opt/oracle/ords/config config set \
+  security.externalSessionTrustedOrigins \
   "https://app.example.com,https://admin.example.com"
 ```
 
-Set all CORS parameters via the ORDS CLI:
-
-```shell
-ords --config /opt/oracle/ords/config config set \
-  security.allowedCORSOrigins "https://app.example.com,https://admin.example.com"
-ords --config /opt/oracle/ords/config config set \
-  security.allowedCORSHeaders "Authorization,Content-Type,X-Requested-With"
-ords --config /opt/oracle/ords/config config set \
-  security.allowedCORSMethods "GET,POST,PUT,DELETE,OPTIONS"
-ords --config /opt/oracle/ords/config config set security.maxAge 3600
-```
+If `security.externalSessionTrustedOrigins` is empty or not configured, then CORS requests to the PL/SQL Gateway are not allowed.
 
 ### CORS Best Practices
 
-```shell
-# WRONG: Wildcard on an authenticated API — allows any origin to send credentials
-ords config set security.allowedCORSOrigins "*"
-
-# CORRECT: Explicit trusted origins only
-ords config set security.allowedCORSOrigins "https://myapp.example.com"
-
-# For truly public read-only APIs, wildcard is acceptable
-# but protect all write operations with OAuth2 regardless
-ords config set security.allowedCORSOrigins "*"
-```
-
-When `security.forceHTTPS = true`, CORS allows HTTPS origins only. Mixed HTTP/HTTPS origins are rejected.
+- **Configure CORS per REST module**: Use `ORDS.SET_MODULE_ORIGINS_ALLOWED` for REST handlers.
+- **Use explicit trusted origins**: Prefer exact origins such as `https://app.example.com` over broad allowlists, especially for authenticated endpoints.
+- **Do not confuse request validation with CORS**: `security.requestValidationFunction` controls whether a PL/SQL Gateway procedure is allowed to execute; it is not the CORS allowlist.
+- **Configure PL/SQL Gateway separately**: Use `security.externalSessionTrustedOrigins` only for PL/SQL Gateway external sessions.
 
 ---
 
@@ -478,5 +488,6 @@ add_header Permissions-Policy        "geolocation=(), microphone=()" always;
 
 - [Deploying and Monitoring Oracle REST Data Services — Serve Commands for Running in Standalone Mode](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.4/ordig/deploying-and-monitoring-oracle-rest-data-services.html#GUID-872EA939-5348-4B31-B4EC-EFD038F69837)
 - [Deploying and Monitoring Oracle REST Data Services — Converting a Private Key to DER (Linux and Unix)](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.4/ordig/deploying-and-monitoring-oracle-rest-data-services.html#GUID-1E64886C-C85C-49B5-A98E-79B9EC8455B4)
+- [ORDS PL/SQL Package Reference — ORDS.SET_MODULE_ORIGINS_ALLOWED](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.4/orddg/ORDS-reference.html#GUID-012CD717-ACBE-4E36-9587-2D156A523BD3)
 - [About the Oracle REST Data Services Configuration Files — Understanding the Configurable Settings](https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/25.4/ordig/about-REST-configuration-files.html#GUID-006F916B-8594-4A78-B500-BB85F35C12A0)
 - [Oracle Database Vault Administrator's Guide 19c](https://docs.oracle.com/en/database/oracle/oracle-database/19/dvadm/index.html)
