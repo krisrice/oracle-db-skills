@@ -1,3 +1,4 @@
+TEST
 # Oracle Skills
 
 Oracle Skills is a collection of practical, installable skills for working with Oracle technologies.
