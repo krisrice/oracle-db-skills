@@ -16,7 +16,7 @@ tracer(s).
 <dependency>
   <groupId>com.oracle.database.jdbc</groupId>
   <artifactId>ojdbc-provider-observability</artifactId>
-  <version>1.1.0</version>
+  <version>${ojdbc.provider.version}</version>
 </dependency>
 ```
 

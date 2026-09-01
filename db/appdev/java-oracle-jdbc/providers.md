@@ -52,8 +52,14 @@ project; see [Jackson OSON Provider](providers/jackson-oson.md).
 | Pkl parser (used by other providers) | `com.oracle.database.jdbc:ojdbc-provider-pkl` | 17+ | [Pkl Parser](providers/pkl.md) |
 | Jackson OSON (JSON mapping) | `com.oracle.database.jdbc:ojdbc-provider-jackson-oson` | 8+ (needs JDBC 23.6+) | [Jackson OSON Provider](providers/jackson-oson.md) |
 
-Keep every provider dependency you use on the same release line and version
-(e.g. all `1.1.0`) when combined in one application.
+## Provider Versions
+
+Follow the [JDBC dependency version rule](dependencies.md#dependency-versions)
+when selecting a provider version. If you use more than one provider, use the
+same version for all provider dependencies.
+
+The provider-page Maven snippets use `ojdbc.provider.version`; define that
+property with the resolved exact version in the consuming POM.
 
 ## Shared Concepts Across Cloud Providers
 

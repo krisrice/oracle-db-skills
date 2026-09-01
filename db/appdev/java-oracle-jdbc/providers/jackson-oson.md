@@ -19,7 +19,7 @@ connection resources.
 <dependency>
   <groupId>com.oracle.database.jdbc</groupId>
   <artifactId>ojdbc-provider-jackson-oson</artifactId>
-  <version>1.1.0</version>
+  <version>${ojdbc.provider.version}</version>
 </dependency>
 ```
 

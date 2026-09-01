@@ -19,7 +19,7 @@ Manager, AWS S3/Secrets Manager/Parameter Store/AppConfig providers — see
 <dependency>
   <groupId>com.oracle.database.jdbc</groupId>
   <artifactId>ojdbc-provider-pkl</artifactId>
-  <version>1.1.0</version>
+  <version>${ojdbc.provider.version}</version>
 </dependency>
 ```
 
