@@ -2,7 +2,7 @@
 
 ## Overview
 
-Oracle Simple Vector SDK (also known as vecdb or oracle-vecdb manages fixed schema vector tables, 
+Oracle Simple Vector SDK (also known as vecdb or oracle-vecdb) manages fixed schema vector tables, 
 records, models, indexes, and asynchronous jobs in Oracle AI Database.
 It supports building applications for semantic search, RAG, recommendations,
 and durable agent memory.
