@@ -1,4 +1,4 @@
-# Oracle Vector SDK Deployment Setup
+# Oracle Simple Vector SDK Deployment Setup
 
 Use this reference whenever the user asks to provision, create, prepare, or
 set up a database deployment for Oracle Vector SDK / VecDB / oracle-vecdb.
