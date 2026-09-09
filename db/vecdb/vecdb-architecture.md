@@ -1,4 +1,4 @@
-# Oracle Vector SDK Architecture
+# Oracle Simple Vector SDK Architecture
 
 ## Overview
 
@@ -95,6 +95,7 @@ database version `23.26.3` or later. SDK and REST access require ORDS `26.2.2`
 or later; direct `DBMS_VECTOR_DATABASE` calls do not require ORDS.
 
 ## Sources
+
 - Oracle Simple Vector SDK (VECDB) Quick Start and setup source: https://docs.oracle.com/en/cloud/paas/autonomous-database/vcapi/quickstart.html
 - oracle-vecdb Python API reference: https://docs.oracle.com/en/cloud/paas/autonomous-database/vcapi/python-api-reference.html
 - Oracle Vector Database REST API reference: https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/26.2/orrst
