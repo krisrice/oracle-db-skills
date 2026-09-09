@@ -18,7 +18,7 @@ forms are related, but are not interchangeable.
 
 | Task | Read these Python SDK reference topics | REST / PL/SQL lookup | Verify before coding |
 | --- | --- | --- | --- |
-| Prepare or provision a deployment | `vecdb-provisioning.md`, then the Oracle Vector SDK Quick Start's **Prepare an AI Database** step | Oracle Vector SDK Quick Start | Deployment preparation, connection prerequisites, version, access path, and networking |
+| Prepare or provision a deployment | `vecdb-provisioning.md`, then the Oracle Simple Vector SDK Quick Start's **Prepare an AI Database** step | Oracle Simple Vector SDK Quick Start | Deployment preparation, connection prerequisites, version, access path, and networking |
 | Connect a client | `Configuration` | REST endpoint/authentication; direct package connection | `rest_url`, authentication choices, custom CA, TLS, and retries |
 | Discover a deployment | `describe_vector_database`, `list_models`, `list_vector_tables`, `describe_vector_table` | `/vecdb/summary`, models/tables resources; `SUMMARY`, `LIST_*`, `DESCRIBE_*` | Return shape and the exact target name |
 | Load or manage a model | `list_models`, `load_model`, `describe_model`, `drop_model` | `/vecdb/models/`; `LIST_MODELS`, `LOAD_MODEL`, `DESCRIBE_MODEL`, `DROP_MODEL` | `model_name`, `url`, `model_params.credential`, reranker metadata, and dependencies |
