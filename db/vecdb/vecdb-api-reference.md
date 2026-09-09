@@ -29,8 +29,7 @@ forms are related, but are not interchangeable.
 | Create, tune, or rebuild an index | `create_index`, `describe_index`, job references, `rebuild_index`, `drop_index`, and `Shared Parameter Objects` | `/vecdb/vector-indexes/`; `CREATE_INDEX`, `INDEX_BUILD_STATUS`, `REBUILD_INDEX`, `DROP_INDEX` | Auto-index policy, vector/metadata parameters, IVF versus HNSW settings, rebuild scope, and job completion |
 
 ## Sources
-- Oracle Vector SDK Quick Start and setup source: https://docs.oracle.com/en/cloud/paas/autonomous-database/vcapi/quickstart.html
-- Oracle Vector SDK documentation root: https://docs.oracle.com/en/cloud/paas/autonomous-database/vcapi/
-- Oracle Vector SDK Python API reference: https://docs.oracle.com/en/cloud/paas/autonomous-database/vcapi/
+- Oracle Simple Vector SDK (VECDB) Quick Start and setup source: https://docs.oracle.com/en/cloud/paas/autonomous-database/vcapi/quickstart.html
+- oracle-vecdb Python API reference: https://docs.oracle.com/en/cloud/paas/autonomous-database/vcapi/python-api-reference.html
 - Oracle Vector Database REST API reference: https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/26.2/orrst
 - Oracle DBMS_VECTOR_DATABASE PL/SQL API reference: https://docs.oracle.com/en/database/oracle/oracle-database/26/arpls/
