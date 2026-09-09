@@ -3,7 +3,7 @@
 These entries come from `create_plugin_attribute` and `create_plugin_attr_value`, not from `wwv_flow_template_options`.
 
 Apply these values through the owning component's settings plus the shared avatar owner file when avatar rendering is enabled.
-Load `avatar._template_options.md` for the shared avatar substructure used by Comments.
+Load `../avatar/avatar._template_options.md` for the shared avatar substructure used by Comments.
 Emit only exact accepted values from this inventory. Do not concatenate adjacent values into one token and do not substitute labels or implementation details.
 
 When a row includes `values=`, pass the left-hand side of each `name=>return_value` pair.

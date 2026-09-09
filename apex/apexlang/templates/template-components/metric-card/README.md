@@ -25,8 +25,8 @@ Canonical Metric Card template pack for `themeTemplateComponent/metricCard`, usi
 - A single Metric Card region can render multiple cards from multiple source rows.
 - When one region must show several independent metrics, prefer a normalized multi-row SQL source. The default pattern is `UNION ALL` across one SELECT per metric so every row projects the same aliases in the same order.
 - Load `metric-card._template_options.md` for Metric Card-specific layout and grouping values.
-- Load `../avatar._template_options.md` for accepted Metric Card avatar value inventory.
-- Load `../badge._template_options.md` for accepted Metric Card badge value inventory.
+- Load `../avatar/avatar._template_options.md` for accepted Metric Card avatar value inventory.
+- Load `../badge/badge._template_options.md` for accepted Metric Card badge value inventory.
 
 ## Template Catalog
 - `metric-card._common.md`

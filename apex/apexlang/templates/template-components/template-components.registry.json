@@ -4,8 +4,10 @@
     {
       "slug": "actions",
       "kind": "helper",
+      "readme": "actions/README.md",
       "index": "actions/actions._index.md",
       "common": "actions/actions._common.md",
+      "files": ["actions/actions._template_options.md"],
       "scenarios": [
         "actions/actions.inline-button.md",
         "actions/actions.menu-trigger.md",
@@ -13,10 +15,25 @@
       ]
     },
     {
+      "slug": "avatar",
+      "kind": "template-component",
+      "readme": "avatar/README.md",
+      "index": "avatar/avatar._index.md",
+      "common": "avatar/avatar._common.md",
+      "files": ["avatar/avatar._template_options.md"],
+      "scenarios": [
+        "avatar/avatar.report-initials.md",
+        "avatar/avatar.report-icon.md",
+        "avatar/avatar.report-image-url-column.md"
+      ]
+    },
+    {
       "slug": "button",
       "kind": "helper",
+      "readme": "button/README.md",
       "index": "button/button._index.md",
       "common": "button/button._common.md",
+      "files": ["button/button._template_options.md"],
       "scenarios": [
         "button/button.navigation.md",
         "button/button.hot-icon.md",
@@ -26,8 +43,10 @@
     {
       "slug": "content-row",
       "kind": "template-component",
+      "readme": "content-row/README.md",
       "index": "content-row/content-row._index.md",
       "common": "content-row/content-row._common.md",
+      "files": ["content-row/content-row._template_options.md"],
       "scenarios": [
         "content-row/content-row.partial-minimal.md",
         "content-row/content-row.partial-rich-content.md",
@@ -43,8 +62,55 @@
     {
       "slug": "metric-card",
       "kind": "template-component",
+      "readme": "metric-card/README.md",
       "index": "metric-card/metric-card._index.md",
-      "common": "metric-card/metric-card._common.md"
+      "common": "metric-card/metric-card._common.md",
+      "files": ["metric-card/metric-card._template_options.md"]
+    },
+    {
+      "slug": "badge",
+      "kind": "template-component",
+      "readme": "badge/README.md",
+      "index": "badge/badge._index.md",
+      "common": "badge/badge._common.md",
+      "files": ["badge/badge._template_options.md"],
+      "scenarios": [
+        "badge/badge.report-minimal.md",
+        "badge/badge.report-link.md"
+      ]
+    },
+    {
+      "slug": "comments",
+      "kind": "template-component",
+      "readme": "comments/README.md",
+      "index": "comments/comments._index.md",
+      "files": ["comments/comments._template_options.md"]
+    },
+    {
+      "slug": "flexbox-container",
+      "kind": "template-component",
+      "readme": "flexbox-container/README.md",
+      "index": "flexbox-container/flexbox-container._index.md",
+      "files": ["flexbox-container/flexbox-container._template_options.md"]
+    },
+    {
+      "slug": "media-list",
+      "kind": "template-component",
+      "readme": "media-list/README.md",
+      "index": "media-list/media-list._index.md",
+      "files": ["media-list/media-list._template_options.md"]
+    },
+    {
+      "slug": "timeline",
+      "kind": "template-component",
+      "readme": "timeline/README.md",
+      "index": "timeline/timeline._index.md",
+      "common": "timeline/timeline._common.md",
+      "files": [
+        "timeline/timeline._template_options.md",
+        "timeline/timeline.report-sample-data.md",
+        "timeline/timeline.permutations.md"
+      ]
     }
   ]
 }

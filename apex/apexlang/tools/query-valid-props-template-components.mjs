@@ -26,6 +26,16 @@ export const DISTILLED_TEMPLATE_COMPONENT_PROFILE_PATH = IS_PACKAGED_ROOT
   ? path.join(REPO_ROOT, "templates", "template-components", "template-component-profiles.json")
   : path.join(REPO_ROOT, "ai-context", "apexlang", "templates", "template-components", "template-component-profiles.json");
 
+const TEMPLATE_COMPONENT_METADATA_PROVENANCE = {
+  backend: "repo-theme-export",
+  authority: "theme-export-metadata",
+  compilerBacked: false,
+  limitations: [
+    "Theme-export attributes are metadata inventory, not compiler-backed APEXlang legality.",
+    "Use direct compiler validation against the target APEX build for emitted structure and properties."
+  ]
+};
+
 function resolveTemplateComponentDir(sourceRoot, name) {
   const aliasTarget = TEMPLATE_COMPONENT_ALIASES[name] || name;
   const pluginDir = path.join(sourceRoot, aliasTarget);
@@ -251,7 +261,7 @@ function loadTemplateComponentProfileFromSourceRoot(sourceRoot, name) {
   const templateComponentBlock = extractBraceBlock(pluginBlock.block, "templateComponent") || "";
 
   return {
-    backend: "repo-theme-export",
+    ...TEMPLATE_COMPONENT_METADATA_PROVENANCE,
     theme: "universal-theme",
     requestedName: resolved.requestedName,
     resolvedName: resolved.resolvedName,
@@ -302,6 +312,9 @@ export function buildTemplateComponentCatalogFromSourceRoot(sourceRoot) {
     schemaVersion: 1,
     theme: "universal-theme",
     source: "repo-theme-export",
+    authority: TEMPLATE_COMPONENT_METADATA_PROVENANCE.authority,
+    compilerBacked: TEMPLATE_COMPONENT_METADATA_PROVENANCE.compilerBacked,
+    limitations: TEMPLATE_COMPONENT_METADATA_PROVENANCE.limitations,
     aliases: TEMPLATE_COMPONENT_ALIASES,
     components
   };
@@ -325,6 +338,7 @@ export function loadTemplateComponentProfile(name) {
   const profile = catalog.components[aliasKey];
   return {
     ...profile,
+    ...TEMPLATE_COMPONENT_METADATA_PROVENANCE,
     requestedName: name
   };
 }

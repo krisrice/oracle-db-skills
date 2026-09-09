@@ -14,7 +14,7 @@ Document the native list region shell and qualifier-dependent list-template appe
 1. Use the dedicated `region-list` template.
 2. Treat the qualifier as mandatory design intent: `cards` or `mediaList`.
 3. Keep the list shared-component reference in the source block.
-4. When the qualifier is `mediaList`, align the report-level appearance values with `../../template-components/media-list._template_options.md`, plus the shared `../../template-components/avatar._template_options.md` and `../../template-components/badge._template_options.md` owner files.
+4. When the qualifier is `mediaList`, align the report-level appearance values with `../../template-components/media-list/media-list._template_options.md`, plus the shared `../../template-components/avatar/avatar._template_options.md` and `../../template-components/badge/badge._template_options.md` owner files.
 
 # Variable Contract
 

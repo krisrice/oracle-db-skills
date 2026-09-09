@@ -294,6 +294,45 @@
       ]
     },
     {
+      "name": "standalone-avatar",
+      "synonyms": [
+        "standalone avatar",
+        "standalone avatar region",
+        "avatar region",
+        "avatar report",
+        "avatar report region",
+        "avatar template component",
+        "theme template component avatar",
+        "themetemplatecomponent avatar"
+      ],
+      "target_type": "page",
+      "excludes": [
+        "classic-report",
+        "interactive-report"
+      ],
+      "rules": [
+        "10-global/apex.global.md",
+        "20-data/apex.sql.md",
+        "40-components/apex.templates.md",
+        "40-components/apex.region-data-source.md"
+      ],
+      "templates": [
+        "templates/template-components/avatar/avatar._common.md",
+        "templates/template-components/avatar/avatar._index.md",
+        "templates/template-components/avatar/avatar.report-initials.md",
+        "templates/template-components/avatar/avatar.report-icon.md",
+        "templates/template-components/avatar/avatar.report-image-url-column.md"
+      ],
+      "requires": [
+        "source object or SQL query",
+        "named projected columns using uppercase snake_case identifiers, source.databaseColumn, and source.dataType",
+        "direct initials source-column identifier without ampersand substitution syntax",
+        "deterministic order by",
+        "avatar type: initials, icon, or URL-column image",
+        "existing authorization scheme when access is restricted"
+      ]
+    },
+    {
       "name": "interactive-report",
       "synonyms": [
         "data report",
@@ -356,10 +395,13 @@
       "target_type": "page",
       "synonyms": [
         "metric card",
+        "metric cards",
         "metric-card",
         "kpi card",
+        "kpi cards",
         "kpi",
-        "scorecard"
+        "scorecard",
+        "scorecards"
       ],
       "rules": [
         "30-pages/apex.page.md",
@@ -372,6 +414,87 @@
       "requires": [
         "settings.title (optional)",
         "settings.metric (optional)"
+      ]
+    },
+    {
+      "name": "timeline",
+      "target_type": "region",
+      "synonyms": [
+        "timeline template component",
+        "timeline component",
+        "timeline region",
+        "activity timeline",
+        "event timeline"
+      ],
+      "rules": [
+        "30-pages/apex.page.md",
+        "20-data/apex.sql.md",
+        "40-components/apex.templates.md"
+      ],
+      "templates": [
+        "templates/template-components/timeline/timeline._index.md",
+        "templates/template-components/timeline/timeline._common.md",
+        "templates/template-components/timeline/timeline.report-sample-data.md",
+        "templates/template-components/timeline/timeline.permutations.md",
+        "templates/template-components/timeline/timeline._template_options.md"
+      ],
+      "conditionalTemplates": [
+        {
+          "keywords": [
+            "avatar"
+          ],
+          "templates": [
+            "templates/template-components/avatar/avatar._template_options.md"
+          ]
+        },
+        {
+          "keywords": [
+            "badge"
+          ],
+          "templates": [
+            "templates/template-components/badge/badge._template_options.md"
+          ]
+        }
+      ],
+      "workflow": "references/domains/template-components/timeline.md",
+      "requires": [
+        "source object (table or view), or an explicit supported source mode",
+        "verified source columns for date, title, and userName",
+        "sql or table when using localDatabase",
+        "optional: description, avatar, or badge"
+      ]
+    },
+    {
+      "name": "badge",
+      "target_type": "page",
+      "synonyms": [
+        "badge template component",
+        "badge region",
+        "standalone badge",
+        "themeTemplateComponent/badge"
+      ],
+      "rules": [
+        "20-data/apex.sql.md",
+        "30-pages/apex.page.md",
+        "40-components/apex.region-data-source.md",
+        "40-components/apex.region-interactions.md",
+        "40-components/apex.templates.md"
+      ],
+      "templates": [
+        "templates/template-components/badge/badge._index.md",
+        "templates/template-components/badge/badge._common.md",
+        "templates/template-components/badge/badge.report-minimal.md",
+        "templates/template-components/badge/badge.report-link.md",
+        "templates/template-components/badge/badge._template_options.md"
+      ],
+      "requires": [
+        "verified data source",
+        "label",
+        "value column",
+        "explicit source columns",
+        "optional: allowlisted state",
+        "optional: resolved link target",
+        "optional: verified authorization scheme"
       ]
     },
     {

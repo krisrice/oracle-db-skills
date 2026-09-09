@@ -7,7 +7,7 @@ Canonical Content Row template pack for `themeTemplateComponent/contentRow`, usi
 - Load `content-row._common.md` first for variable contract and generation guardrails.
 - Use `content-row._index.md` to pick the correct scenario template.
 - Load `content-row._template_options.md` for Content Row-specific settings, appearance, and grouping values.
-- Load `../avatar._template_options.md` and `../badge._template_options.md` for the shared avatar and badge substructures.
+- Load `../avatar/avatar._template_options.md` and `../badge/badge._template_options.md` for the shared avatar and badge substructures.
 - Avatar-capable Content Row scenarios use `settings.displayAvatar` plus `plugin-avatar` fields for type, initials/description, shape, size, and CSS classes.
 - Badge-capable Content Row scenarios use `settings.displayBadge` plus `plugin-badge` fields for label, value, state, style, shape, size, icon, position, and width.
 - SQL-backed template component regions must emit top-level `orderBy {}` and must not embed `ORDER BY` inside `source.sqlQuery`.

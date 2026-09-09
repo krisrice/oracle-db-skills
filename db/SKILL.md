@@ -56,7 +56,7 @@ db/
 | ORDS architecture, installation, REST design, authentication, monitoring, ORDS Concert Sample App | `db/ords/` |
 | AWR, ASH, explain plan, indexes, optimizer stats, wait events, memory | `db/performance/` |
 | Package design, error handling, performance, collections, cursors, debugging | `db/plsql/` |
-| Privileges, VPD, masking, auditing, encryption, network security | `db/security/` |
+| Privileges, Deep Data Security, VPD, masking, auditing, encryption, network security | `db/security/` |
 | SQL tuning, SQL patterns, dynamic SQL, injection avoidance | `db/sql-dev/` |
 | SQLcl basics, scripting, Liquibase, formatting, DDL generation, data loading, MCP server, scheduler daemon, AWR, background jobs, schema comparison with DIFF | `db/sqlcl/` |
 | Oracle Vector SDK setup and configuration, including database preparation, Python SDK, REST API, PL/SQL package, version prerequisites, vector tables, ingestion, models, search, reranking, indexes, and jobs | `db/vecdb/` |
@@ -69,6 +69,7 @@ db/
 - `db/plsql/plsql-package-design.md`
 - `db/appdev/java-oracle-jdbc.md`
 - `db/devops/schema-migrations.md`
+- `db/security/deep-data-security.md`
 - `db/agent/schema-discovery.md`
 - `db/containers/container-selection-matrix.md`
 - `db/backup-recovery/autonomous-recovery-service.md`
@@ -85,6 +86,6 @@ db/
 | Build RAG on Oracle Database | `ai-profiles` → `vector-search` → `dbms-vector` |
 | Build a Java JDBC service | `java-oracle-jdbc` → `java-oracle-jdbc/dependencies` → `java-oracle-jdbc/connections` → `java-oracle-jdbc/sql` → `java-oracle-jdbc/pooling-production` |
 | Perform agent-safe schema change | `schema-discovery` → `destructive-op-guards` → `idempotency-patterns` → `schema-migrations` |
-| Set up AI-driven database access via MCP | `sqlcl-basics` (save connections) → `security/privilege-management` (least-privilege user) → `sqlcl-mcp-server` (configure + start) |
+| Set up AI-driven database access via MCP | `security/deep-data-security` (end-user authorization) → `sqlcl-basics` (save connections) → `sqlcl-mcp-server` (configure + start) |
 | Set up an Oracle Vector SDK database deployment | `vecdb-provisioning` → Oracle Vector SDK Quick Start → **Prepare an AI Database** |
 | Build vector-based applications for semantic search, RAG, or recommendations using Oracle Vector SDK's fixed-schema APIs through the Python SDK, REST, or PL/SQL | `vecdb-architecture` → `vecdb-api-reference` → relevant capability file (`vecdb-models`, `vecdb-vector-tables`, `vecdb-search`, or `vecdb-indexes`) |

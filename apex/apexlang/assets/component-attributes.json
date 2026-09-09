@@ -801,6 +801,335 @@
           }
         }
       },
+      "avatar": {
+        "allowedBlocks": [
+          "source",
+          "orderBy",
+          "layout",
+          "appearance",
+          "accessibility",
+          "comments",
+          "serverSideCondition",
+          "componentAppearance",
+          "settings",
+          "column",
+          "security"
+        ],
+        "requiredBlocks": [
+          "source",
+          "orderBy",
+          "layout",
+          "appearance",
+          "componentAppearance",
+          "settings"
+        ],
+        "minimumChildren": {
+          "column": 1
+        },
+        "componentAppearance": {
+          "allowedProperties": [
+            "display"
+          ],
+          "requiredProperties": [
+            "display"
+          ],
+          "propertyEnums": {
+            "display": [
+              "report"
+            ]
+          }
+        },
+        "orderBy": {
+          "allowedProperties": [
+            "type",
+            "orderByClause",
+            "item"
+          ],
+          "requiredProperties": [
+            "type"
+          ],
+          "propertyEnums": {
+            "type": [
+              "staticValue",
+              "item"
+            ]
+          }
+        },
+        "settings": {
+          "allowedProperties": [
+            "type",
+            "initials",
+            "icon",
+            "image",
+            "description",
+            "shape",
+            "size",
+            "spacing",
+            "cssClasses"
+          ],
+          "requiredProperties": [
+            "type"
+          ],
+          "propertyEnums": {
+            "type": [
+              "initials",
+              "icon",
+              "image"
+            ],
+            "shape": [
+              "circular",
+              "noShape",
+              "rounded",
+              "square"
+            ],
+            "size": [
+              "extraExtraLarge",
+              "extraExtraSmall",
+              "extraLarge",
+              "extraSmall",
+              "large",
+              "medium",
+              "small"
+            ],
+            "spacing": [
+              "auto",
+              "large",
+              "medium",
+              "none",
+              "small",
+              "stack"
+            ]
+          }
+        },
+        "security": {
+          "allowedProperties": [
+            "authorizationScheme"
+          ],
+          "propertyNotes": {
+            "authorizationScheme": "Optional compiler-backed region authorization. When access is restricted, reference an existing shared authorization scheme; never invent a scheme name."
+          }
+        },
+        "column": {
+          "requiredBlocks": [
+            "layout",
+            "source"
+          ],
+          "allowedBlocks": [
+            "layout",
+            "source"
+          ],
+          "layout": {
+            "allowedProperties": [
+              "sequence"
+            ],
+            "requiredProperties": [
+              "sequence"
+            ]
+          },
+          "source": {
+            "allowedProperties": [
+              "databaseColumn",
+              "dataType"
+            ],
+            "requiredProperties": [
+              "databaseColumn",
+              "dataType"
+            ],
+            "propertyEnums": {
+              "dataType": [
+                "bfile",
+                "blob",
+                "boolean",
+                "clob",
+                "date",
+                "intervalDayToSecond",
+                "intervalYearToMonth",
+                "number",
+                "rowid",
+                "sdoGeometry",
+                "timestamp",
+                "timestampWithLocalTimeZone",
+                "timestampWithTimeZone",
+                "varchar2"
+              ]
+            }
+          }
+        }
+      },
+      "badge": {
+        "requiredBlocks": [
+          "source",
+          "componentAppearance",
+          "settings"
+        ],
+        "allowedBlocks": [
+          "source",
+          "orderBy",
+          "layout",
+          "appearance",
+          "accessibility",
+          "comments",
+          "serverSideCondition",
+          "componentAppearance",
+          "settings",
+          "action",
+          "column",
+          "security"
+        ],
+        "componentAppearance": {
+          "allowedProperties": [
+            "display"
+          ],
+          "requiredProperties": [
+            "display"
+          ],
+          "propertyEnums": {
+            "display": [
+              "report"
+            ]
+          }
+        },
+        "orderBy": {
+          "allowedProperties": [
+            "type",
+            "orderByClause",
+            "item"
+          ],
+          "requiredProperties": [
+            "type"
+          ],
+          "propertyEnums": {
+            "type": [
+              "staticValue",
+              "item"
+            ]
+          }
+        },
+        "settings": {
+          "allowedProperties": [
+            "label",
+            "value",
+            "state",
+            "icon",
+            "displayLabel",
+            "style",
+            "shape",
+            "size"
+          ],
+          "requiredProperties": [
+            "label",
+            "value"
+          ],
+          "propertyEnums": {
+            "style": [
+              "outline",
+              "subtle"
+            ],
+            "shape": [
+              "circular",
+              "rounded",
+              "square"
+            ],
+            "size": [
+              "small",
+              "medium",
+              "large"
+            ]
+          }
+        },
+        "action": {
+          "allowedProperties": [
+            "position"
+          ],
+          "requiredProperties": [
+            "position"
+          ],
+          "allowedBlocks": [
+            "layout",
+            "behavior",
+            "serverSideCondition"
+          ],
+          "requiredBlocks": [
+            "layout"
+          ],
+          "propertyEnums": {
+            "position": [
+              "link"
+            ]
+          },
+          "layout": {
+            "allowedProperties": [
+              "sequence"
+            ],
+            "requiredProperties": [
+              "sequence"
+            ]
+          },
+          "behavior": {
+            "allowedProperties": [
+              "type",
+              "target",
+              "targetUrl",
+              "linkAttributes"
+            ]
+          }
+        },
+        "column": {
+          "requiredBlocks": [
+            "layout",
+            "source"
+          ],
+          "allowedBlocks": [
+            "layout",
+            "source",
+            "security",
+            "comments"
+          ],
+          "layout": {
+            "allowedProperties": [
+              "sequence"
+            ],
+            "requiredProperties": [
+              "sequence"
+            ]
+          },
+          "source": {
+            "allowedProperties": [
+              "type",
+              "databaseColumn",
+              "dataType",
+              "primaryKey",
+              "availableOnClient",
+              "valueProtected"
+            ],
+            "requiredProperties": [
+              "databaseColumn",
+              "dataType"
+            ],
+            "propertyEnums": {
+              "type": [
+                "databaseColumn"
+              ],
+              "dataType": [
+                "bfile",
+                "blob",
+                "boolean",
+                "clob",
+                "date",
+                "intervalDayToSecond",
+                "intervalYearToMonth",
+                "number",
+                "rowid",
+                "sdoGeometry",
+                "timestamp",
+                "timestampWithLocalTimeZone",
+                "timestampWithTimeZone",
+                "varchar2"
+              ]
+            }
+          }
+        }
+      },
       "contentRow": {
         "allowedBlocks": [
           "source",
@@ -1125,6 +1454,182 @@
           "allowedProperties": [
             "whenNoDataFound",
             "noDataFoundIcon"
+          ]
+        },
+        "advanced": {
+          "allowedProperties": [
+            "htmlDomId"
+          ]
+        },
+        "column": {
+          "requiredBlocks": [
+            "layout",
+            "source"
+          ],
+          "allowedBlocks": [
+            "layout",
+            "source"
+          ],
+          "layout": {
+            "allowedProperties": [
+              "sequence"
+            ],
+            "requiredProperties": [
+              "sequence"
+            ]
+          },
+          "source": {
+            "allowedProperties": [
+              "databaseColumn",
+              "dataType",
+              "primaryKey"
+            ],
+            "requiredProperties": [
+              "databaseColumn",
+              "dataType"
+            ],
+            "propertyEnums": {
+              "dataType": [
+                "bfile",
+                "blob",
+                "boolean",
+                "clob",
+                "date",
+                "intervalDayToSecond",
+                "intervalYearToMonth",
+                "number",
+                "rowid",
+                "sdoGeometry",
+                "timestamp",
+                "timestampWithLocalTimeZone",
+                "timestampWithTimeZone",
+                "varchar2"
+              ]
+            }
+          }
+        }
+      },
+      "timeline": {
+        "requiredBlocks": [
+          "source",
+          "componentAppearance",
+          "settings"
+        ],
+        "allowedBlocks": [
+          "source",
+          "layout",
+          "appearance",
+          "accessibility",
+          "comments",
+          "serverSideCondition",
+          "componentAppearance",
+          "settings",
+          "plugin-avatar",
+          "plugin-badge",
+          "pagination",
+          "column",
+          "security",
+          "advanced"
+        ],
+        "componentAppearance": {
+          "allowedProperties": [
+            "display"
+          ],
+          "requiredProperties": [
+            "display"
+          ],
+          "propertyEnums": {
+            "display": [
+              "partial",
+              "report"
+            ]
+          }
+        },
+        "settings": {
+          "allowedProperties": [
+            "userName",
+            "date",
+            "title",
+            "description",
+            "displayAvatar",
+            "displayBadge"
+          ],
+          "requiredProperties": [
+            "userName",
+            "date",
+            "title"
+          ],
+          "propertyEnums": {
+            "displayAvatar": [
+              true,
+              false
+            ],
+            "displayBadge": [
+              true,
+              false
+            ]
+          }
+        },
+        "plugin-avatar": {
+          "allowedProperties": [
+            "type",
+            "icon",
+            "initials",
+            "image",
+            "description",
+            "shape"
+          ],
+          "requiredProperties": [
+            "type",
+            "shape"
+          ],
+          "propertyEnums": {
+            "type": [
+              "icon",
+              "image",
+              "initials"
+            ],
+            "shape": [
+              "circular",
+              "noShape",
+              "rounded",
+              "square"
+            ]
+          }
+        },
+        "plugin-badge": {
+          "allowedProperties": [
+            "label",
+            "value",
+            "state",
+            "icon",
+            "style",
+            "shape",
+            "displayLabel"
+          ],
+          "requiredProperties": [
+            "label",
+            "value"
+          ],
+          "propertyEnums": {
+            "style": [
+              "outline",
+              "subtle"
+            ],
+            "shape": [
+              "circular",
+              "rounded",
+              "square"
+            ],
+            "displayLabel": [
+              true,
+              false
+            ]
+          }
+        },
+        "pagination": {
+          "allowedProperties": [
+            "entitiesPerPage"
           ]
         },
         "advanced": {

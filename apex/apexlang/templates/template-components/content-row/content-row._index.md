@@ -18,7 +18,7 @@ Use as the routing index for Content Row templates. Select a scenario based on d
 - Use avatar, badge, links, primary actions, grouping, and appearance scenario files only when those features are explicitly requested.
 - Use `content-row.report-grouping-selection.md` when native Content Row focus-only, single-row, or multiple-row selection is requested; it documents `rowSelection.currentSelectionPageItem` and the same-page hidden item that stores native selected row state.
 - Use `content-row.report-master-detail-full-row-link.md` when a Content Row parent list filters or drives child detail regions. Native `rowSelection.currentSelectionPageItem` alone is not sufficient for parent-child context setting.
-- Use `content-row._template_options.md`, `../avatar._template_options.md`, and `../badge._template_options.md` when validating Content Row plugin attribute names or allowed values.
+- Use `content-row._template_options.md`, `../avatar/avatar._template_options.md`, and `../badge/badge._template_options.md` when validating Content Row plugin attribute names or allowed values.
 - For SQL-backed Content Row scenarios, keep the SQL unordered and emit the region-level `orderBy {}` block from `content-row._common.md`.
 
 ## Scenario Routing

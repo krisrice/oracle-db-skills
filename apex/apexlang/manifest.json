@@ -23,9 +23,17 @@
     "assets/apexlang/domains-catalog.json",
     "assets/orchestration.manifest.json",
     "assets/rules-mapping.json",
+    "assets/rules.catalog.json",
     "assets/component-policies.json",
     "assets/component-attributes.json",
+    "assets/grammar/apexlang.ebnf",
     "assets/validator-fix-recipes.json",
+    "assets/indexes/font-apex-icon-index.json",
+    "assets/contracts/page-patterns.json",
+    "assets/contracts/page-construction-packs.json",
+    "assets/contracts/grammar-semantic-rules.json",
+    "assets/contracts/package-layers.json",
+    "assets/apex-generation/components.registry.json",
     "references/policies/compiler-prop-map.md",
     "references/workflows/apex-generation.md",
     "references/workflows/apexlang/apexlang-execution-model.md",
@@ -37,6 +45,8 @@
     "references/ops/runtime-gates.md",
     "tools/apexctl.mjs",
     "tools/query-valid-props.mjs",
+    "tools/query-valid-props-context.mjs",
+    "tools/query-valid-props-semantics.mjs",
     "tools/query-valid-props-normalize.mjs",
     "tools/query-valid-props-runtime.mjs",
     "tools/compiler-truth-audit.mjs",
@@ -85,8 +95,20 @@
       "dest": "runtime/lib/common.mjs"
     },
     {
+      "source": "skills/apexlang/tools/lib/catalogs.mjs",
+      "dest": "runtime/lib/catalogs.mjs"
+    },
+    {
+      "source": "skills/apexlang/tools/public/grammar_contract.mjs",
+      "dest": "runtime/grammar_contract.mjs"
+    },
+    {
       "source": "skills/apexlang/tools/internal/python/validate_apexlang.py",
       "dest": "runtime/internal/python/validate_apexlang.py"
+    },
+    {
+      "source": "skills/apexlang/tools/internal/python/format_apexlang.py",
+      "dest": "runtime/internal/python/format_apexlang.py"
     },
     {
       "source": "skills/apexlang/tools/internal/python/validate_apexlang_vocab.py",
@@ -105,6 +127,8 @@
     "SKILL.md",
     "tools/apexctl.mjs",
     "tools/query-valid-props.mjs",
+    "tools/query-valid-props-context.mjs",
+    "tools/query-valid-props-semantics.mjs",
     "tools/query-valid-props-normalize.mjs",
     "tools/query-valid-props-runtime.mjs",
     "tools/compiler-truth-audit.mjs"
@@ -162,6 +186,22 @@
       "source": null
     },
     {
+      "path": "assets/contracts/grammar-semantic-rules.json",
+      "source": "skills/apexlang/contracts/grammar-semantic-rules.json"
+    },
+    {
+      "path": "assets/contracts/package-layers.json",
+      "source": "skills/apexlang/contracts/package-layers.json"
+    },
+    {
+      "path": "assets/contracts/page-construction-packs.json",
+      "source": "skills/apexlang/contracts/page-construction-packs.json"
+    },
+    {
+      "path": "assets/contracts/page-patterns.json",
+      "source": "skills/apexlang/contracts/page-patterns.json"
+    },
+    {
       "path": "assets/domains/business-logic/computations-prompt.md",
       "source": "skills/apexlang/business-logic/assets/computations-prompt.md"
     },
@@ -210,6 +250,14 @@
       "source": "skills/apexlang/universal-attr-config/assets/translations.prompts.json"
     },
     {
+      "path": "assets/grammar/apexlang.ebnf",
+      "source": "ai-context/apexlang/grammar/apexlang.ebnf"
+    },
+    {
+      "path": "assets/indexes/font-apex-icon-index.json",
+      "source": "skills/apexlang/assets/indexes/font-apex-icon-index.json"
+    },
+    {
       "path": "assets/orchestration.manifest.json",
       "source": "skills/sqlcl/assets/orchestration.manifest.json"
     },
@@ -228,6 +276,10 @@
     {
       "path": "assets/rules-mapping.json",
       "source": "ai-context/memory-bank/rules-mapping.json"
+    },
+    {
+      "path": "assets/rules.catalog.json",
+      "source": "ai-context/memory-bank/rules.catalog.json"
     },
     {
       "path": "assets/validator-fix-recipes.json",
@@ -428,6 +480,10 @@
     {
       "path": "references/domains/template-components/templates.md",
       "source": "skills/apexlang/page-components/template-components/references/templates.md"
+    },
+    {
+      "path": "references/domains/template-components/timeline.md",
+      "source": "skills/apexlang/page-components/template-components/references/timeline.md"
     },
     {
       "path": "references/domains/template-components/workflow-items-templates.md",
@@ -702,6 +758,14 @@
       "source": "skills/apexlang/references/workflow-create-app-from-fr-and-model.md"
     },
     {
+      "path": "runtime/grammar_contract.mjs",
+      "source": null
+    },
+    {
+      "path": "runtime/internal/python/format_apexlang.py",
+      "source": null
+    },
+    {
       "path": "runtime/internal/python/validate_apexlang.py",
       "source": null
     },
@@ -715,6 +779,10 @@
     },
     {
       "path": "runtime/internal/python/validator_common.py",
+      "source": null
+    },
+    {
+      "path": "runtime/lib/catalogs.mjs",
       "source": null
     },
     {
@@ -3086,12 +3154,56 @@
       "source": "ai-context/apexlang/templates/template-components/actions/actions.nested-group.md"
     },
     {
-      "path": "templates/template-components/avatar._template_options.md",
-      "source": "ai-context/apexlang/templates/template-components/avatar._template_options.md"
+      "path": "templates/template-components/avatar/README.md",
+      "source": "ai-context/apexlang/templates/template-components/avatar/README.md"
     },
     {
-      "path": "templates/template-components/badge._template_options.md",
-      "source": "ai-context/apexlang/templates/template-components/badge._template_options.md"
+      "path": "templates/template-components/avatar/avatar._common.md",
+      "source": "ai-context/apexlang/templates/template-components/avatar/avatar._common.md"
+    },
+    {
+      "path": "templates/template-components/avatar/avatar._index.md",
+      "source": "ai-context/apexlang/templates/template-components/avatar/avatar._index.md"
+    },
+    {
+      "path": "templates/template-components/avatar/avatar._template_options.md",
+      "source": "ai-context/apexlang/templates/template-components/avatar/avatar._template_options.md"
+    },
+    {
+      "path": "templates/template-components/avatar/avatar.report-icon.md",
+      "source": "ai-context/apexlang/templates/template-components/avatar/avatar.report-icon.md"
+    },
+    {
+      "path": "templates/template-components/avatar/avatar.report-image-url-column.md",
+      "source": "ai-context/apexlang/templates/template-components/avatar/avatar.report-image-url-column.md"
+    },
+    {
+      "path": "templates/template-components/avatar/avatar.report-initials.md",
+      "source": "ai-context/apexlang/templates/template-components/avatar/avatar.report-initials.md"
+    },
+    {
+      "path": "templates/template-components/badge/README.md",
+      "source": "ai-context/apexlang/templates/template-components/badge/README.md"
+    },
+    {
+      "path": "templates/template-components/badge/badge._common.md",
+      "source": "ai-context/apexlang/templates/template-components/badge/badge._common.md"
+    },
+    {
+      "path": "templates/template-components/badge/badge._index.md",
+      "source": "ai-context/apexlang/templates/template-components/badge/badge._index.md"
+    },
+    {
+      "path": "templates/template-components/badge/badge._template_options.md",
+      "source": "ai-context/apexlang/templates/template-components/badge/badge._template_options.md"
+    },
+    {
+      "path": "templates/template-components/badge/badge.report-link.md",
+      "source": "ai-context/apexlang/templates/template-components/badge/badge.report-link.md"
+    },
+    {
+      "path": "templates/template-components/badge/badge.report-minimal.md",
+      "source": "ai-context/apexlang/templates/template-components/badge/badge.report-minimal.md"
     },
     {
       "path": "templates/template-components/button/README.md",
@@ -3122,8 +3234,16 @@
       "source": "ai-context/apexlang/templates/template-components/button/button.navigation.md"
     },
     {
-      "path": "templates/template-components/comments._template_options.md",
-      "source": "ai-context/apexlang/templates/template-components/comments._template_options.md"
+      "path": "templates/template-components/comments/README.md",
+      "source": "ai-context/apexlang/templates/template-components/comments/README.md"
+    },
+    {
+      "path": "templates/template-components/comments/comments._index.md",
+      "source": "ai-context/apexlang/templates/template-components/comments/comments._index.md"
+    },
+    {
+      "path": "templates/template-components/comments/comments._template_options.md",
+      "source": "ai-context/apexlang/templates/template-components/comments/comments._template_options.md"
     },
     {
       "path": "templates/template-components/content-row/README.md",
@@ -3186,12 +3306,28 @@
       "source": "ai-context/apexlang/templates/template-components/content-row/manifest.json"
     },
     {
-      "path": "templates/template-components/flexbox-container._template_options.md",
-      "source": "ai-context/apexlang/templates/template-components/flexbox-container._template_options.md"
+      "path": "templates/template-components/flexbox-container/README.md",
+      "source": "ai-context/apexlang/templates/template-components/flexbox-container/README.md"
     },
     {
-      "path": "templates/template-components/media-list._template_options.md",
-      "source": "ai-context/apexlang/templates/template-components/media-list._template_options.md"
+      "path": "templates/template-components/flexbox-container/flexbox-container._index.md",
+      "source": "ai-context/apexlang/templates/template-components/flexbox-container/flexbox-container._index.md"
+    },
+    {
+      "path": "templates/template-components/flexbox-container/flexbox-container._template_options.md",
+      "source": "ai-context/apexlang/templates/template-components/flexbox-container/flexbox-container._template_options.md"
+    },
+    {
+      "path": "templates/template-components/media-list/README.md",
+      "source": "ai-context/apexlang/templates/template-components/media-list/README.md"
+    },
+    {
+      "path": "templates/template-components/media-list/media-list._index.md",
+      "source": "ai-context/apexlang/templates/template-components/media-list/media-list._index.md"
+    },
+    {
+      "path": "templates/template-components/media-list/media-list._template_options.md",
+      "source": "ai-context/apexlang/templates/template-components/media-list/media-list._template_options.md"
     },
     {
       "path": "templates/template-components/metric-card/README.md",
@@ -3218,8 +3354,28 @@
       "source": "ai-context/apexlang/templates/template-components/template-components.registry.json"
     },
     {
-      "path": "templates/template-components/timeline._template_options.md",
-      "source": "ai-context/apexlang/templates/template-components/timeline._template_options.md"
+      "path": "templates/template-components/timeline/README.md",
+      "source": "ai-context/apexlang/templates/template-components/timeline/README.md"
+    },
+    {
+      "path": "templates/template-components/timeline/timeline._common.md",
+      "source": "ai-context/apexlang/templates/template-components/timeline/timeline._common.md"
+    },
+    {
+      "path": "templates/template-components/timeline/timeline._index.md",
+      "source": "ai-context/apexlang/templates/template-components/timeline/timeline._index.md"
+    },
+    {
+      "path": "templates/template-components/timeline/timeline._template_options.md",
+      "source": "ai-context/apexlang/templates/template-components/timeline/timeline._template_options.md"
+    },
+    {
+      "path": "templates/template-components/timeline/timeline.permutations.md",
+      "source": "ai-context/apexlang/templates/template-components/timeline/timeline.permutations.md"
+    },
+    {
+      "path": "templates/template-components/timeline/timeline.report-sample-data.md",
+      "source": "ai-context/apexlang/templates/template-components/timeline/timeline.report-sample-data.md"
     },
     {
       "path": "templates/template-family-registry.json",
@@ -3250,11 +3406,19 @@
       "source": null
     },
     {
+      "path": "tools/query-valid-props-context.mjs",
+      "source": null
+    },
+    {
       "path": "tools/query-valid-props-normalize.mjs",
       "source": null
     },
     {
       "path": "tools/query-valid-props-runtime.mjs",
+      "source": null
+    },
+    {
+      "path": "tools/query-valid-props-semantics.mjs",
       "source": null
     },
     {

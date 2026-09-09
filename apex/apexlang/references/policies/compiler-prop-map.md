@@ -5,15 +5,17 @@ Bundled compiler-truth lookup helper for APEXlang property debugging.
 ## Contents
 
 - `tools/query-valid-props.mjs`
+- `tools/query-valid-props-semantics.mjs`
 - `tools/query-valid-props-template-components.mjs`
 - `templates/template-components/template-component-profiles.json`
 - `tools/compiler-truth-audit.mjs`
 
 ## Authority
 
-1. Compiler metadata from the active SQLcl or Oracle runtime and direct compiler validation
-2. Exact-match templates and examples that already match the same component family and variant
-3. Repository machine-readable fallback guidance such as `assets/component-attributes.json`
+1. `assets/grammar/apexlang.ebnf` for APEXlang syntax shape
+2. Compiler metadata from the active SQLcl or Oracle runtime and direct compiler validation for semantic legality
+3. Exact-match templates and examples that already match the same component family and variant
+4. Repository machine-readable fallback guidance such as `assets/component-attributes.json`
 
 ## Use When
 
@@ -35,7 +37,7 @@ node tools/compiler-truth-audit.mjs --app-path applications/my-app --verify-comp
 ## Runtime Contract
 
 - This lookup surface reads Oracle's shipped `apexlang_meta_data.json` directly from a discoverable VS Code extension, dbtools home, SQLcl home, or compiler jar.
-- Universal Theme template-component family settings are bundled from the distilled `templates/template-components/template-component-profiles.json` catalog.
+- Universal Theme template-component family settings are bundled from the distilled `templates/template-components/template-component-profiles.json` catalog. That catalog is theme-export inventory only, reports `compilerBacked: false`, and does not establish APEXlang legality.
 - No checked-in compiler prop-map snapshot is shipped in the public package.
 - The helper normalizes metadata in memory for each run so results stay tied to the active runtime.
 - The audit command writes machine-readable compiler-truth evidence and blocks generation workflows when the active runtime metadata or curated component policy provenance is stale.

@@ -20,9 +20,54 @@
       "owningGuidance": ["references/policies/memory-bank/00-guard/ai.guard.md", "references/workflows/apex-generation/agents/40-agent-revision.md"]
     },
     "APEXLANG_LF_LINE_ENDINGS_REQUIRED_001": {
-      "cause": ".apx artifact contains CRLF line endings.",
+      "cause": ".apx artifact contains CRLF or CR line endings.",
       "deterministicFix": "Rewrite only the affected .apx files with LF line endings; keep content unchanged.",
       "owningGuidance": ["references/policies/memory-bank/00-guard/ai.guard.md", ".gitattributes"]
+    },
+    "AVATAR_AUTHORIZATION_SCHEME_EVIDENCE_REQUIRED_001": {
+      "cause": "Restricted standalone Avatar visibility lacks a proven shared authorization scheme or references an invented scheme name.",
+      "deterministicFix": "Use mustNotBePublicUser or resolve the exact shared authorization declaration from the validation set and emit its @alias as region security.authorizationScheme; stop with Missing Inputs if it cannot be resolved.",
+      "owningGuidance": ["templates/template-components/avatar/avatar._common.md", "references/policies/memory-bank/10-global/apex.global.md"]
+    },
+    "AVATAR_COLUMN_IDENTIFIER_INVALID_001": {
+      "cause": "A standalone Avatar child column uses a lowercase or hyphenated external identifier rejected by the live compiler.",
+      "deterministicFix": "Rename the Avatar child declaration to uppercase snake_case, for example column AVATAR_INITIALS (...), while preserving its source.databaseColumn mapping.",
+      "owningGuidance": ["templates/template-components/avatar/avatar._common.md"]
+    },
+    "AVATAR_IMAGE_URL_COLUMN_REQUIRED_001": {
+      "cause": "A standalone or Timeline-nested Avatar image uses a missing or unproven image source shape.",
+      "deterministicFix": "Emit the active Avatar image property—settings.image for standalone Avatar or plugin-avatar.image for Timeline—as { type: urlColumn, urlColumn: <projected varchar2 database column> }; declare that projection through a named child column and remove BLOB or alternate image properties.",
+      "owningGuidance": ["templates/template-components/avatar/avatar.report-image-url-column.md", "references/domains/template-components/timeline.md"]
+    },
+    "AVATAR_IMAGE_URL_SAFETY_REQUIRED_001": {
+      "cause": "An Avatar URL-column image does not use the canonical application-file SQL bind contract or can render a traversal, arbitrary, external, protocol-relative, javascript:, or data: URL.",
+      "deterministicFix": "Project the image URL as :APP_FILES || 'relative/path' or :APEX_FILES || 'relative/path'. Reject quoted template/substitution tokens, AUTHENTICATED_URL_PREFIX, BLOB endpoints, traversal, raw database URL columns, and absolute external URLs.",
+      "owningGuidance": ["templates/template-components/avatar/avatar.report-image-url-column.md", "references/policies/memory-bank/10-global/apex.global.md"]
+    },
+    "AVATAR_ICON_ALLOWLIST_REQUIRED_001": {
+      "cause": "An Avatar icon has an unknown icon or modifier, contains multiple icons or arbitrary classes, or comes from an unverified dynamic column.",
+      "deterministicFix": "Use exactly one icon from the canonical pinned Font APEX index plus only optional listed modifiers. For column-backed icons, project approved literal values directly or map source states with an explicit SQL CASE expression whose every output satisfies that same canonical contract.",
+      "owningGuidance": ["assets/indexes/font-apex-icon-index.json", "templates/template-components/avatar/avatar.report-icon.md", "references/policies/memory-bank/40-components/apex.region-media.md"]
+    },
+    "AVATAR_ACCESSIBLE_DESCRIPTION_REQUIRED_001": {
+      "cause": "A meaningful Avatar lacks a verified human-readable description, the description mapping is invalid, or decorative intent is contradictory.",
+      "deterministicFix": "Set settings.description to nonempty human-readable text or an &UPPERCASE_COLUMN. substitution backed by a declared varchar2 child column. For a dynamic source, verify its meaning and persist AVATAR_DESCRIPTION_EVIDENCE_SOURCE=schema_doc, =live_db, or =user_asserted in region comments. For a decorative Avatar, omit both the description property and its child column and add AVATAR_PURPOSE_DECORATIVE.",
+      "owningGuidance": ["templates/template-components/avatar/avatar._common.md", "references/policies/memory-bank/10-global/apex.global.md"]
+    },
+    "AVATAR_CSS_CLASSES_SAFE_REQUIRED_001": {
+      "cause": "Avatar cssClasses are dynamic, unscoped, visibility-changing, undocumented, or use framework utilities without explicit-request evidence.",
+      "deterministicFix": "Prefer native Avatar shape, size, and spacing attributes. If custom CSS is required, use static avatar-* class names and add AVATAR_CSS_RATIONALE=<reason> to region comments. Framework utilities also require AVATAR_FRAMEWORK_UTILITIES_EXPLICIT_REQUEST; visibility-changing classes remain forbidden.",
+      "owningGuidance": ["templates/template-components/avatar/avatar._common.md", "references/policies/memory-bank/40-components/apex.templates.md"]
+    },
+    "AVATAR_INITIALS_COLUMN_REFERENCE_REQUIRED_001": {
+      "cause": "Standalone Avatar settings.initials uses substitution syntax or does not reference a declared varchar2 Avatar source column.",
+      "deterministicFix": "Set settings.initials to the direct uppercase source-column identifier, for example AVATAR_INITIALS, without an ampersand or trailing period; keep &COLUMN_NAME. syntax only for free-text settings such as description.",
+      "owningGuidance": ["templates/template-components/avatar/avatar.report-initials.md"]
+    },
+    "AVATAR_TYPE_PAYLOAD_REQUIRED_001": {
+      "cause": "Standalone Avatar settings omit the selected type payload or mix payloads from multiple Avatar types.",
+      "deterministicFix": "Choose exactly one type—initials, icon, or image—emit its matching payload, and remove the other payload properties.",
+      "owningGuidance": ["templates/template-components/avatar/avatar._common.md"]
     },
     "APP_TEMPLATE_ARTIFACT_LEAK_001": {
       "cause": "Generated app root contains template-only files or unexpected top-level entries.",
@@ -93,6 +138,46 @@
       "cause": "Generated UX decisions are not traceable to requirements, schema metadata, or explicit user assertions.",
       "deterministicFix": "Populate sourceEvidence and link every page/action/layout/LOV decision to evidence; stop with Missing Inputs for unsupported decisions.",
       "owningGuidance": ["references/workflows/apexlang/workflow-create-app-from-fr-and-model.md", "references/workflows/apexlang/application-spec.template.md"]
+    },
+    "BADGE_ACTION_LAYOUT_SEQUENCE_REQUIRED_001": {
+      "cause": "A Badge link action omits the component layout sequence required by the live compiler.",
+      "deterministicFix": "Add layout { sequence: <number> } to every Badge action, preserving position: link and the existing behavior target.",
+      "owningGuidance": ["templates/template-components/badge/badge._common.md", "templates/template-components/badge/badge.report-link.md"]
+    },
+    "BADGE_ACTION_CARDINALITY_REQUIRED_001": {
+      "cause": "A Badge region defines more than one action even though the component supports a single link action.",
+      "deterministicFix": "Keep at most one Badge action, preserve position: link and numeric layout.sequence, and remove duplicate actions.",
+      "owningGuidance": ["templates/template-components/badge/badge._common.md", "templates/template-components/badge/badge.report-link.md"]
+    },
+    "BADGE_LABEL_STATIC_REQUIRED_001": {
+      "cause": "A raw-rendered Badge label is mapped from a column, substitution token, or unresolved template value.",
+      "deterministicFix": "Replace settings.label with concise trusted static text; keep row-varying content in the escaped Badge value.",
+      "owningGuidance": ["templates/template-components/badge/badge._common.md"]
+    },
+    "BADGE_LINK_ATTRIBUTES_FORBIDDEN_001": {
+      "cause": "A Badge action contains custom linkAttributes that may carry arbitrary classes, attributes, or inline event handlers.",
+      "deterministicFix": "Remove behavior.linkAttributes and express navigation through the reviewed structured behavior.target.",
+      "owningGuidance": ["templates/template-components/badge/badge._common.md", "templates/template-components/badge/badge.report-link.md"]
+    },
+    "BADGE_STATE_ALLOWLIST_REQUIRED_001": {
+      "cause": "An explicitly mapped Badge state projection is dynamic, nullable, mixed-case, or can return values outside danger, warning, success, and info.",
+      "deterministicFix": "If state was not requested, remove settings.state, the state projection, and its child column. If state was requested, keep a projected varchar2 state column and preserve authoritative source evidence; for sqlQuery sources, use an exact lowercase literal or a CASE expression whose every branch, including an explicit ELSE, returns danger, warning, success, or info.",
+      "owningGuidance": ["templates/template-components/badge/badge._common.md"]
+    },
+    "BADGE_STATE_DATATYPE_REQUIRED_001": {
+      "cause": "The source column mapped by Badge settings.state does not declare source.dataType: varchar2.",
+      "deterministicFix": "Declare the mapped state child column as source.dataType: varchar2 and keep its SQL results restricted to the exact lowercase semantic states.",
+      "owningGuidance": ["templates/template-components/badge/badge._common.md"]
+    },
+    "BADGE_TARGET_URL_ALLOWLIST_REQUIRED_001": {
+      "cause": "A Badge action uses redirectUrl behavior or targetUrl while no application-specific destination allowlist is modeled in the repository.",
+      "deterministicFix": "Remove redirectUrl behavior and behavior.targetUrl, then use a reviewed structured behavior.target. Keep external URL navigation blocked until an application-specific allowlist contract exists.",
+      "owningGuidance": ["templates/template-components/badge/badge._common.md", "templates/template-components/badge/badge.report-link.md"]
+    },
+    "BADGE_VALUE_DATATYPE_REQUIRED_001": {
+      "cause": "The source column mapped by Badge settings.value uses a datatype that the APEX 26.1 Badge value attribute does not support.",
+      "deterministicFix": "Change the mapped value projection and child column to varchar2, number, date, intervalYearToMonth, or intervalDayToSecond; do not restrict unrelated auxiliary columns.",
+      "owningGuidance": ["templates/template-components/badge/badge._common.md"]
     },
     "BREADCRUMB_COVERAGE_ENTRY_REQUIRED_001": {
       "cause": "A non-modal page is missing a shared breadcrumb entry.",
@@ -219,10 +304,15 @@
       "deterministicFix": "Add listEntries.displayFilterInitially: true for Product, Customer, Store, Employee, Supplier, Email, SKU, name/title, and similar high-cardinality facets.",
       "owningGuidance": ["references/policies/memory-bank/30-pages/apex.faceted-search.md"]
     },
+    "FILE_UPLOAD_DISPLAY_MODE_REQUIRED_001": {
+      "cause": "A File Upload item omits its explicit display mode and would inherit the compiler's simple inline file-browse UI.",
+      "deterministicFix": "Add display.displayAs. Use blockDropzone by default with dropzoneTitle 'Drop files here' and dropzoneDesc 'or click to browse'; preserve an explicitly requested inlineDropzone or nativeFileBrowse mode.",
+      "owningGuidance": ["templates/items/file-upload/file-upload._common.md"]
+    },
     "FA_ICON_REQUIRED_001": {
-      "cause": "An icon-bearing property uses a non-Font APEX icon token, custom CSS icon alias, image icon, or framework-specific icon class.",
-      "deterministicFix": "Replace the value with a conservative Font APEX fa-* class such as fa-table, fa-users, fa-map-marker, fa-package, fa-image, fa-filter, fa-edit, or fa-plus.",
-      "owningGuidance": ["references/policies/memory-bank/40-components/apex.region-media.md", "references/policies/memory-bank/40-components/apex.buttons.md"]
+      "cause": "An icon-bearing property is empty, dynamic where a literal is required, or uses a non-catalog icon, duplicate base/modifier token, custom CSS alias, image icon, or framework-specific class.",
+      "deterministicFix": "Read the pinned Font APEX index and replace the value with exactly one listed icon, at most one optional fa base class, and unique optional listed modifiers; do not infer or invent fa-* tokens.",
+      "owningGuidance": ["assets/indexes/font-apex-icon-index.json"]
     },
     "FACETED_SEARCH_DEFAULT_SETTINGS_REQUIRED_001": {
       "cause": "A faceted-search region is missing the standard default settings block or has a non-default value for a required default setting.",
@@ -424,6 +514,11 @@
       "deterministicFix": "Update the page alias to the uppercase filename slug, for example p00001-home.apx must declare alias: HOME, or rename the file to match the intended alias.",
       "owningGuidance": ["references/policies/memory-bank/30-pages/apex.page.md"]
     },
+    "PAGE_DIRECT_PROPERTY_INVALID_001": {
+      "cause": "A page declaration redundantly emits an unsupported direct page property such as page: 1.",
+      "deterministicFix": "Remove the direct page property. Keep the page number only in the top-level declaration, for example page 1 (.",
+      "owningGuidance": ["references/policies/memory-bank/30-pages/apex.page.md"]
+    },
     "PAGE_FILENAME_NUMBER_MISMATCH_001": {
       "cause": "The canonical page filename number does not match the page declaration.",
       "deterministicFix": "Update the page declaration number or rename the file so pNNNNN-*.apx and page N agree.",
@@ -493,6 +588,21 @@
       "cause": "A templateOptions entry uses a stale static ID or CSS token rejected by the live compiler/theme contract.",
       "deterministicFix": "Replace the stale value with the live-valid emitted value, such as js-dialog-class-t-Drawer--pullOutEnd for drawer end/right, or standalone #DEFAULT# for title-bar breadcrumbs.",
       "owningGuidance": ["references/policies/memory-bank/40-components/apex.templates.md"]
+    },
+    "TIMELINE_AVATAR_BLOCK_REQUIRED_001": {
+      "cause": "Timeline settings.displayAvatar and the nested plugin-avatar block are inconsistent.",
+      "deterministicFix": "When displayAvatar is true, add plugin-avatar with type, shape, and exactly one matching payload. When Avatar display is omitted or false, remove plugin-avatar.",
+      "owningGuidance": ["references/domains/template-components/timeline.md"]
+    },
+    "TIMELINE_AVATAR_PAYLOAD_REQUIRED_001": {
+      "cause": "A Timeline plugin-avatar omits the payload selected by type or mixes icon, image, and initials payloads.",
+      "deterministicFix": "Choose exactly one Timeline Avatar type—icon, image, or initials—emit only its matching payload, and remove the other payload properties.",
+      "owningGuidance": ["references/domains/template-components/timeline.md"]
+    },
+    "TIMELINE_BADGE_BLOCK_REQUIRED_001": {
+      "cause": "Timeline settings.displayBadge and the nested plugin-badge block are inconsistent.",
+      "deterministicFix": "When displayBadge is true, add plugin-badge with label and value. When Badge display is omitted or false, remove plugin-badge.",
+      "owningGuidance": ["references/domains/template-components/timeline.md"]
     },
     "THEME_BASE_THEME_REQUIRED_001": {
       "cause": "Universal Theme definition omits baseTheme.",

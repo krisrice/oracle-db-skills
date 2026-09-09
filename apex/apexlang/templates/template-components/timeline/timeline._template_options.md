@@ -3,8 +3,9 @@
 These entries come from `create_plugin_attribute` and `create_plugin_attr_value`, not from `wwv_flow_template_options`.
 
 Apply these values through the owning component's settings plus the shared avatar and badge owner files when those substructures are enabled.
-Load `avatar._template_options.md` and `badge._template_options.md` for the shared substructures used by Timeline.
+Load `../avatar/avatar._template_options.md` and `../badge/badge._template_options.md` for the shared substructures used by Timeline.
 Emit only exact accepted values from this inventory. Do not concatenate adjacent values into one token and do not substitute labels or implementation details.
+Rows scoped to `REPORT` or `REPORT_GROUP` record Universal Theme export metadata only; they do not prove an APEXlang emission shape. The current Timeline compiler contract rejects root report attributes and exposes no supported grouping block, so follow the Timeline workflow and do not emit those rows.
 
 When a row includes `values=`, pass the left-hand side of each `name=>return_value` pair.
 

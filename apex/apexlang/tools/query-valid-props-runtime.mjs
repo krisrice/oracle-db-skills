@@ -53,9 +53,14 @@ export function findSqlOnPath({
 }
 
 /**
- * Build ordered Oracle runtime candidates from flags, environment variables, VS Code extensions, and PATH SQLcl.
+ * Build ordered Oracle runtime candidates from flags, environment variables, PATH SQLcl, and VS Code extensions.
  */
-export function collectOracleHomeCandidates(explicitOracleHome) {
+export function collectOracleHomeCandidates(explicitOracleHome, {
+  pathValue = process.env.PATH || "",
+  platform = process.platform,
+  pathExtValue = process.env.PATHEXT || ".EXE;.CMD;.BAT;.COM",
+  homeDir = os.homedir()
+} = {}) {
   const candidates = [];
   const seen = new Set();
 
@@ -82,7 +87,12 @@ export function collectOracleHomeCandidates(explicitOracleHome) {
     }
   }
 
-  const vscodeExtensionsDir = path.join(os.homedir(), ".vscode", "extensions");
+  const resolvedSqlPath = findSqlOnPath({ pathValue, platform, pathExtValue });
+  if (resolvedSqlPath) {
+    addCandidate(path.dirname(path.dirname(resolvedSqlPath)), "path_sqlcl");
+  }
+
+  const vscodeExtensionsDir = path.join(homeDir, ".vscode", "extensions");
   if (fs.existsSync(vscodeExtensionsDir)) {
     const extensionDirs = fs.readdirSync(vscodeExtensionsDir, { withFileTypes: true })
       .filter((entry) => entry.isDirectory() && entry.name.startsWith("oracle.sql-developer-"))
@@ -91,11 +101,6 @@ export function collectOracleHomeCandidates(explicitOracleHome) {
     for (const extensionDir of extensionDirs) {
       addCandidate(extensionDir, "vscode_extension");
     }
-  }
-
-  const resolvedSqlPath = findSqlOnPath();
-  if (resolvedSqlPath) {
-    addCandidate(path.dirname(path.dirname(resolvedSqlPath)), "path_sqlcl");
   }
 
   return candidates;

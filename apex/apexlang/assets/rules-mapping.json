@@ -30,6 +30,18 @@
       ]
     },
     {
+      "apply": "templates/template-components/avatar/avatar._common.md",
+      "match": [
+        "standalone avatar",
+        "avatar region",
+        "avatar report",
+        "avatar report region",
+        "avatar template component",
+        "theme template component avatar",
+        "themeTemplateComponent/avatar"
+      ]
+    },
+    {
       "apply": "templates/region-components/faceted-search/faceted-search._common.md",
       "match": [
         "faceted search region"
@@ -64,6 +76,16 @@
         "kpi card",
         "kpi",
         "scorecard"
+      ]
+    },
+    {
+      "apply": "templates/template-components/badge/badge._common.md",
+      "match": [
+        "badge",
+        "badge template component",
+        "badge region",
+        "standalone badge",
+        "themeTemplateComponent/badge"
       ]
     },
     {
