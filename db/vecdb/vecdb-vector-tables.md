@@ -1,4 +1,4 @@
-# Oracle Vector SDK Vector Tables and Data
+# Oracle Simple Vector SDK Vector Tables and Data
 
 
 Use this reference for vector-table definition, annotations, inline data,
@@ -59,8 +59,7 @@ require ORDS `26.2.2` or later.
 
 ## Sources
 
-- Oracle Vector SDK Python API reference, including architecture and workflows: https://docs.oracle.com/en/cloud/paas/autonomous-database/vcapi/
-- Oracle Vector Database REST API reference:
-  https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/26.2/orrst
-- Oracle DBMS_VECTOR_DATABASE PL/SQL API reference:
-  https://docs.oracle.com/en/database/oracle/oracle-database/26/arpls/
+- Oracle Simple Vector SDK (VECDB) Quick Start and setup source: https://docs.oracle.com/en/cloud/paas/autonomous-database/vcapi/quickstart.html
+- oracle-vecdb Python API reference: https://docs.oracle.com/en/cloud/paas/autonomous-database/vcapi/python-api-reference.html
+- Oracle Vector Database REST API reference: https://docs.oracle.com/en/database/oracle/oracle-rest-data-services/26.2/orrst
+- Oracle DBMS_VECTOR_DATABASE PL/SQL API reference: https://docs.oracle.com/en/database/oracle/oracle-database/26/arpls/
