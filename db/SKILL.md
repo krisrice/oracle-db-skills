@@ -1,11 +1,11 @@
 ---
 name: db
-description: Oracle Database guidance for SQL, PL/SQL, SQLcl, ORDS, administration, app development, performance, security, migrations, and agent-safe database workflows. Use when the user asks to write, edit, rewrite, review, format, debug, tune, or explain SQL; create or refactor PL/SQL; use SQLcl, Liquibase, ORDS, JDBC, node-oracledb, Python, Java, .NET, or database frameworks; troubleshoot queries, sessions, locks, waits, indexes, optimizer plans, AWR, ASH, migrations, schemas, users, roles, privileges, backup, recovery, Data Guard, RAC, multitenant, containers, monitoring, auditing, encryption, VPD, or safe agent database operations.
+description: Oracle Database guidance for SQL, PL/SQL, SQLcl, ORDS, Oracle Vector SDK, administration, app development, performance, security, migrations, and agent-safe database workflows. Use when the user asks to write, edit, rewrite, review, format, debug, tune, or explain SQL; create or refactor PL/SQL; use Oracle VecDB through the Python SDK, REST API, or DBMS_VECTOR_DATABASE package; use SQLcl, Liquibase, ORDS, JDBC, node-oracledb, Python, Java, .NET, or database frameworks; troubleshoot vector tables, embeddings, vector search, reranking, queries, sessions, locks, waits, indexes, optimizer plans, AWR, ASH, migrations, schemas, users, roles, privileges, backup, recovery, Data Guard, RAC, multitenant, containers, monitoring, auditing, encryption, VPD, or safe agent database operations.
 ---
 
 # Oracle Database Skills
 
-This domain contains Oracle Database skills for administration, SQL and PL/SQL development, performance tuning, security, ORDS, SQLcl, migrations, frameworks, OCR container guidance, and agent-safe database workflows.
+This domain contains Oracle Database skills for administration, SQL and PL/SQL development, performance tuning, security, ORDS, SQLcl, migrations, frameworks, VecDB SDK/REST/PL/SQL workflows, OCR container guidance, and agent-safe database workflows.
 
 ## How to Use This Domain
 
@@ -33,7 +33,8 @@ db/
 ├── plsql/
 ├── security/
 ├── sql-dev/
-└── sqlcl/
+├── sqlcl/
+└── vecdb/
 ```
 
 ## Category Routing
@@ -58,6 +59,7 @@ db/
 | Privileges, Deep Data Security, VPD, masking, auditing, encryption, network security | `db/security/` |
 | SQL tuning, SQL patterns, dynamic SQL, injection avoidance | `db/sql-dev/` |
 | SQLcl basics, scripting, Liquibase, formatting, DDL generation, data loading, MCP server, scheduler daemon, AWR, background jobs, schema comparison with DIFF | `db/sqlcl/` |
+| Oracle Vector SDK setup and configuration, including database preparation, Python SDK, REST API, PL/SQL package, version prerequisites, vector tables, ingestion, models, search, reranking, indexes, and jobs | `db/vecdb/` |
 
 ## Key Starting Points
 
@@ -72,6 +74,8 @@ db/
 - `db/containers/container-selection-matrix.md`
 - `db/backup-recovery/autonomous-recovery-service.md`
 - `db/backup-recovery/cloud-protect.md`
+- `db/vecdb/vecdb-provisioning.md`
+- `db/vecdb/vecdb-architecture.md`
 
 ## Common Multi-Step Flows
 
@@ -83,3 +87,5 @@ db/
 | Build a Java JDBC service | `java-oracle-jdbc` → `java-oracle-jdbc/dependencies` → `java-oracle-jdbc/connections` → `java-oracle-jdbc/sql` → `java-oracle-jdbc/pooling-production` |
 | Perform agent-safe schema change | `schema-discovery` → `destructive-op-guards` → `idempotency-patterns` → `schema-migrations` |
 | Set up AI-driven database access via MCP | `security/deep-data-security` (end-user authorization) → `sqlcl-basics` (save connections) → `sqlcl-mcp-server` (configure + start) |
+| Set up an Oracle Vector SDK database deployment | `vecdb-provisioning` → Oracle Vector SDK Quick Start → **Prepare an AI Database** |
+| Build vector-based applications for semantic search, RAG, or recommendations using Oracle Vector SDK's fixed-schema APIs through the Python SDK, REST, or PL/SQL | `vecdb-architecture` → `vecdb-api-reference` → relevant capability file (`vecdb-models`, `vecdb-vector-tables`, `vecdb-search`, or `vecdb-indexes`) |
